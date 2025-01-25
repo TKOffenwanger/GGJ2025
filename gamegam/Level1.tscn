@@ -16,6 +16,7 @@ radius = 50.01
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_66dws")
+timer_enabled = false
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
@@ -26,10 +27,10 @@ texture = ExtResource("1_u8887")
 
 [node name="Player" type="CharacterBody2D" parent="." groups=["Player"]]
 position = Vector2(347, 213)
+disable_mode = 2
 motion_mode = 1
 slide_on_ceiling = false
-platform_on_leave = 2
-safe_margin = 1.0
+safe_margin = 11.343
 script = ExtResource("2_shsnu")
 speed = 700.0
 skid_time = 0.2
@@ -50,6 +51,8 @@ position_smoothing_enabled = true
 
 [node name="GrabBubble" type="Area2D" parent="Player"]
 position = Vector2(210, 0)
+collision_layer = 0
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/GrabBubble"]
 shape = SubResource("CircleShape2D_8gwon")
