@@ -6,13 +6,14 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_tnemi"]
 radius = 66.0681
 
-[node name="Enemy" type="RigidBody2D" groups=["Enemy"]]
+[node name="Enemy" type="RigidBody2D" groups=["Enemy", "Grabbable"]]
+collision_layer = 5
 gravity_scale = 0.0
 lock_rotation = true
 freeze = true
 freeze_mode = 1
-continuous_cd = 1
 script = ExtResource("1_44l0r")
+speed = 10.0
 
 [node name="Icon" type="Sprite2D" parent="."]
 position = Vector2(0, 1)

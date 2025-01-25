@@ -4,6 +4,8 @@ extends CharacterBody2D
 @onready var camera = $Camera2D
 @onready var grab_bubble = $GrabBubble
 
+@export var psychic_throw_force : float = 1.0
+
 @export var speed : float = 400.0
 @export var skid_time : float  = 1.0
 @export var bubble_radius : float  = 1.0:
@@ -11,6 +13,7 @@ extends CharacterBody2D
 		bubble_radius = max(0.2, value)
 		bubbleSprite.scale = Vector2.ONE*bubble_radius
 
+var _grabbed_fools : Array = []
 
 #@onready var _playerAnimator : AnimatedSprite2D = $PlayerAnimation
 #var _animator_busy : bool = false
@@ -18,14 +21,25 @@ extends CharacterBody2D
 var _move_dir : Vector2 = Vector2.ZERO
 
 func _input(event):
-	if event.is_action_pressed("grab"):
-		var mouse_direction = (get_global_mouse_position() - global_position).normalized()
-		var spawnpoint = mouse_direction*bubble_radius*210
-		grab_bubble.position = spawnpoint
+	if event.is_action_released("grab"):
+		for nerd in _grabbed_fools:
+			nerd.get_ungrab(psychic_throw_force)
 
 func _physics_process(delta: float) -> void:
 #	DEBUG bubble expand contract
 	bubble_radius += Input.get_axis("ui_cancel", "ui_accept") * delta
+	
+	# Grab bubble
+	if Input.is_action_pressed("grab"):
+		var mouse_direction = (get_global_mouse_position() - global_position).normalized()
+		grab_bubble.position = mouse_direction*bubble_radius*210 #Hardcoded pixel radius of current circle
+		var grabbable_fools = grab_bubble.get_overlapping_bodies()
+		for grabbable in grabbable_fools:
+			if not grabbable.has_method("get_grabbed"):
+				print("BROKEN grabbable ", grabbable)
+				continue
+			grabbable.get_grabbed(grab_bubble)
+			_grabbed_fools.append(grabbable)
 	
 	# Get where we goin
 	_move_dir = Vector2(Input.get_axis("move_left", "move_right"), Input.get_axis("move_up", "move_down"))
