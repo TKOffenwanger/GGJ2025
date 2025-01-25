@@ -25,7 +25,7 @@ func _input(event):
 
 func _physics_process(delta: float) -> void:
 #	DEBUG bubble expand contract
-	bubble_radius += Input.get_axis("ui_cancel", "ui_accept") * delta
+	bubble_radius += Input.get_axis("ShrinkBubble","ExpandBubble") * delta
 	
 	# Get where we goin
 	_move_dir = Vector2(Input.get_axis("move_left", "move_right"), Input.get_axis("move_up", "move_down"))
