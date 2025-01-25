@@ -27,7 +27,7 @@ func _input(event):
 
 func _physics_process(delta: float) -> void:
 #	DEBUG bubble expand contract
-	bubble_radius += Input.get_axis("ui_cancel", "ui_accept") * delta
+	bubble_radius += Input.get_axis("ShrinkBubble","ExpandBubble") * delta
 	
 	# Grab bubble
 	if Input.is_action_pressed("grab"):
