@@ -7,12 +7,14 @@ extends Node2D
 @export var enemy_spawn_time : float = 1.0
 @export var timer_enabled : bool = true
 
+var _avg_cam_distance:
+	get:
+		return (get_viewport_rect().size.x + get_viewport_rect().size.y) / 2
 
 func _ready():
 	_timer.paused = not timer_enabled
 	_timer.wait_time = enemy_spawn_time
 	#var camera : Camera2D = _player_node.camera
-	#get_viewport_rect().size 
 
 func change_enemy_spawn_timer(enable_timer : bool, time_between_spawns : float):
 	_timer.start(time_between_spawns)
@@ -21,7 +23,8 @@ func change_enemy_spawn_timer(enable_timer : bool, time_between_spawns : float):
 	timer_enabled = enable_timer
 
 func _on_timer_timeout():
+	# Create Enemy
 	var enemy = _enemy_scene.instantiate()
-	var random_dir_and_distance : Vector2 = Vector2.from_angle(randf()*PI*2) * randf_range(100, 600)
+	var random_dir_and_distance : Vector2 = Vector2.from_angle(randf()*PI*2) * randf_range(_avg_cam_distance * 0.8, _avg_cam_distance * 1.2)
 	enemy.global_position = _player_node.global_position + random_dir_and_distance
 	self.add_child(enemy)

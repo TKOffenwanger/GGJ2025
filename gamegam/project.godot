@@ -55,7 +55,13 @@ grab={
 
 [layer_names]
 
+2d_physics/layer_1="Solid Object"
+2d_physics/layer_2="Emeny"
 2d_physics/layer_3="Grabbable (do not add if no get_grabbed()"
+
+[physics]
+
+2d/default_linear_damp=1.0
 
 [rendering]
 

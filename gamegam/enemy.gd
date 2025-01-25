@@ -18,7 +18,7 @@ func _physics_process(delta):
 	if _grabbed:
 		apply_impulse(_pulled_toward.global_position - global_position)
 	elif _rag_dolled:
-		if linear_velocity.length() < 1:
+		if linear_velocity.length() < 10:
 			reset_to_normal()
 	elif is_instance_valid(player_node):
 		var velocity = (player_node.position - position).normalized() * speed
