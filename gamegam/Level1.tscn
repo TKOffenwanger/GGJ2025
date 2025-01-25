@@ -1,44 +1,63 @@
-[gd_scene load_steps=7 format=3 uid="uid://dw3lohqmwistr"]
+[gd_scene load_steps=10 format=3 uid="uid://dw3lohqmwistr"]
 
+[ext_resource type="Script" path="res://World.gd" id="1_66dws"]
 [ext_resource type="Texture2D" uid="uid://dd8vkwug2iwde" path="res://doobie.png" id="1_u8887"]
 [ext_resource type="Script" path="res://player.gd" id="2_shsnu"]
-[ext_resource type="Texture2D" path="res://bunne_1.png" id="3_td5v0"]
-
-[sub_resource type="SphereMesh" id="SphereMesh_l6otw"]
+[ext_resource type="Texture2D" uid="uid://b555p66bqnohc" path="res://SImple Circle.svg" id="3_grqvm"]
+[ext_resource type="Texture2D" uid="uid://dolywob2xoqwn" path="res://bunne_1.png" id="3_td5v0"]
+[ext_resource type="PackedScene" uid="uid://cdr41qlx3q5pe" path="res://resources/enemy.tscn" id="5_gfjwj"]
+[ext_resource type="Texture2D" uid="uid://3sen3qikw3r8" path="res://Juniper ANGER.png" id="6_wwiu5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_oanp2"]
 radius = 66.2722
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_cb4p3"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_8gwon"]
+radius = 50.01
 
 [node name="World" type="Node2D"]
+script = ExtResource("1_66dws")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
 
 [node name="Doobie" type="Sprite2D" parent="."]
 position = Vector2(850, -149)
 texture = ExtResource("1_u8887")
 
-[node name="Player" type="CharacterBody2D" parent="."]
+[node name="Player" type="CharacterBody2D" parent="." groups=["Player"]]
+position = Vector2(347, 213)
+motion_mode = 1
+slide_on_ceiling = false
+platform_on_leave = 2
+safe_margin = 1.0
 script = ExtResource("2_shsnu")
 speed = 700.0
-skid_time = 0.1
+skid_time = 0.2
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="Player"]
-scale = Vector2(500, 500)
-mesh = SubResource("SphereMesh_l6otw")
+[node name="BubbleSprite" type="Sprite2D" parent="Player"]
+texture = ExtResource("3_grqvm")
 
 [node name="Bunne1" type="Sprite2D" parent="Player"]
 position = Vector2(2, 0)
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("3_td5v0")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+[node name="Collider" type="CollisionShape2D" parent="Player"]
 shape = SubResource("CircleShape2D_oanp2")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position_smoothing_enabled = true
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="GrabBubble" type="Area2D" parent="Player"]
+position = Vector2(210, 0)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(444, 357)
-shape = SubResource("WorldBoundaryShape2D_cb4p3")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/GrabBubble"]
+shape = SubResource("CircleShape2D_8gwon")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player/GrabBubble"]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("6_wwiu5")
+
+[node name="Enemy" parent="." instance=ExtResource("5_gfjwj")]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
