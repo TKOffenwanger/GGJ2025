@@ -7,7 +7,7 @@
 radius = 66.0681
 
 [node name="Enemy" type="RigidBody2D" groups=["Enemy", "Grabbable"]]
-collision_layer = 5
+collision_layer = 7
 gravity_scale = 0.0
 lock_rotation = true
 freeze = true
