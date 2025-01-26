@@ -44,6 +44,8 @@ func _on_between_waves_timeout():
 		_spawn_timer.paused = false
 	else:
 		print("You win!")
+		await get_tree().create_timer(1.5).timeout
+		get_tree().change_scene_to_file("res://win_screen.tscn")
 
 func _on_between_spawns_timeout():
 	if _enemies_spawns_left > 0:
@@ -66,3 +68,5 @@ func _on_player_player_died():
 	var deathAni : AnimatedSprite2D = _player_death_scene.instantiate()
 	self.add_child(deathAni)
 	deathAni.global_position = player_pos + Vector2(7, -29) #hardcoded offset
+	await get_tree().create_timer(1.5).timeout
+	get_tree().change_scene_to_file("res://lose_screen.tscn")

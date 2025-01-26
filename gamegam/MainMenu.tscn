@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dg0orr1jpdwb3"]
+[gd_scene load_steps=19 format=3 uid="uid://dg0orr1jpdwb3"]
 
 [ext_resource type="Script" path="res://main_menu.gd" id="1_thpd7"]
 [ext_resource type="Texture2D" uid="uid://dtbv4itw8hoa2" path="res://UI/MENU.png" id="2_bc1b3"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bc140gm1kr4gn" path="res://UI/SoundOn.png" id="9_1crqv"]
 [ext_resource type="Script" path="res://stop_music.gd" id="9_ra8vu"]
 [ext_resource type="Texture2D" uid="uid://da6o26py2580c" path="res://UI/SoundOff.png" id="10_to4x1"]
+[ext_resource type="PackedScene" uid="uid://s4niisvak75c" path="res://scene_transition_animation.tscn" id="11_qes5t"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wlc7q"]
 
@@ -68,6 +69,8 @@ texture = ExtResource("4_8uf4k")
 position = Vector2(459.12, 419.287)
 scale = Vector2(1.58035, 1.58035)
 texture = ExtResource("7_k4c3e")
+
+[node name="SceneTransitionAnimation" parent="." instance=ExtResource("11_qes5t")]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
