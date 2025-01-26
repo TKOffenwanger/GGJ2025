@@ -82,11 +82,15 @@ func _physics_process(delta: float) -> void:
 
 func _play_animation():
 	if Input.is_action_pressed("grab"): #attack
+		_playerAnimator.play(&"RESET")
+		_playerAnimator.advance(0)
 		_playerAnimator.play("Attack")
 	elif velocity.length() > 0: #Walk
 		_playerAnimator.play("Walk-loop")
 		_flip_h = _move_dir.x < 0 #flip sprites if heading left
 	else: #Idle
+		_playerAnimator.play(&"RESET")
+		_playerAnimator.advance(0)
 		_playerAnimator.play("Idle-loop")
 
 func _player_die():
