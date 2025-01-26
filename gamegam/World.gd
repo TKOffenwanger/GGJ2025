@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var _player_node : CharacterBody2D = get_tree().get_first_node_in_group("Player")
 @onready var _enemy_scene = preload("res://resources/enemy.tscn")
+@onready var _player_death_scene = preload("res://resources/player_death_animation.tscn")
 @onready var _wave_timer : Timer = $BetweenWaves
 @onready var _spawn_timer : Timer = $BetweenSpawns
 
@@ -56,8 +57,12 @@ func _on_between_spawns_timeout():
 func _on_player_player_died():
 	var cam : Camera2D = _player_node.camera
 	var cam_pos = cam.global_position
+	var player_pos = _player_node.global_position
 	cam.position_smoothing_enabled = false
 	_player_node.remove_child(cam)
 	self.add_child(cam)
 	cam.global_position = cam_pos
 	_player_node.queue_free()
+	var deathAni : AnimatedSprite2D = _player_death_scene.instantiate()
+	self.add_child(deathAni)
+	deathAni.global_position = player_pos + Vector2(7, -29) #hardcoded offset
