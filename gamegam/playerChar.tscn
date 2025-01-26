@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dhkmvxivl7x33"]
+[gd_scene load_steps=20 format=3 uid="uid://cf64g4wetn83f"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_tdex7"]
 [ext_resource type="Texture2D" uid="uid://b555p66bqnohc" path="res://SImple Circle.svg" id="2_afpqx"]
@@ -18,8 +18,8 @@ radius = 215.523
 radius = 80.0562
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1e28o"]
-radius = 1.1501
-height = 3.21234
+radius = 1.2743
+height = 2.72138
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0bqg0"]
 load_path = "res://.godot/imported/Front Leg.png-5954abd1398d98c857486030ecfea6b0.ctex"
@@ -444,7 +444,7 @@ scale = Vector2(0.3, 0.3)
 texture = ExtResource("3_hqwys")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(0.25, 0.25)
+zoom = Vector2(0.5, 0.5)
 position_smoothing_enabled = true
 
 [node name="GrabBubble" type="Area2D" parent="."]
@@ -460,8 +460,8 @@ scale = Vector2(0.1, 0.1)
 texture = ExtResource("4_vonpd")
 
 [node name="Collider" type="CollisionShape2D" parent="."]
-position = Vector2(8, -18)
-scale = Vector2(51.3, 62.26)
+position = Vector2(1, 32)
+scale = Vector2(51.3, 46.78)
 shape = SubResource("CapsuleShape2D_1e28o")
 
 [node name="Polygons" type="Node2D" parent="."]
@@ -560,7 +560,6 @@ rest = Transform2D(-0.94028, 0.340402, -0.340402, -0.94028, 15.3667, 2.63333)
 [node name="FrontArm" type="Bone2D" parent="Skeleton2D/Torso"]
 position = Vector2(15.6667, -4.53333)
 rotation = 3.56741
-scale = Vector2(1, 1)
 rest = Transform2D(-0.926357, -0.376647, 0.376647, -0.926357, 15.6667, -4.53333)
 
 [node name="BackLeg" type="Bone2D" parent="Skeleton2D/Torso"]
