@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal player_died
+
 @onready var camera = $Camera2D
 @onready var grab_bubble = $GrabBubble
 @onready var _playerAnimator : AnimationPlayer = $AnimationPlayer
@@ -12,6 +14,8 @@ extends CharacterBody2D
 	set(value):
 		bubble_radius = clamp(value, 0.2, 3.0)
 		_personal_bubble.scale = Vector2.ONE*bubble_radius
+		if bubble_radius < 1:
+			_player_die()
 
 var _grabbed_fools : Array = []
 var _move_dir : Vector2 = Vector2.ZERO
@@ -36,7 +40,7 @@ func _physics_process(delta: float) -> void:
 	#Bubble physics
 	if _personal_bubble.has_overlapping_bodies():
 		var num_enemies = _personal_bubble.get_overlapping_bodies().size()
-		bubble_radius -= delta * num_enemies
+		bubble_radius -= delta * num_enemies / 5
 	else:
 		bubble_radius += delta
 	
@@ -78,3 +82,8 @@ func _play_animation():
 		_flip_h = _move_dir.x < 0 #flip sprites if heading left
 	else: #Idle
 		_playerAnimator.play("Idle-loop")
+
+func _player_die():
+	print("Heckin died ", bubble_radius)
+	player_died.emit()
+	
