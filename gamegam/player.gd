@@ -19,7 +19,9 @@ var _move_dir : Vector2 = Vector2.ZERO
 func _input(event):
 	if event.is_action_released("grab"):
 		for nerd in _grabbed_fools:
-			nerd.get_ungrab(psychic_throw_force)
+			if is_instance_valid(nerd):
+				nerd.get_ungrab(psychic_throw_force)
+			_grabbed_fools.erase(nerd)
 
 func _physics_process(delta: float) -> void:
 #	DEBUG bubble expand contract
