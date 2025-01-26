@@ -371,6 +371,30 @@ tracks/23/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("Polygons/FrontArmAttack:visible")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/25/type = "value"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("Sprite2D:visible")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_f6p5u"]
 length = 0.001
@@ -1278,6 +1302,18 @@ tracks/24/keys = {
 "update": 0,
 "values": [Vector2(1, 1)]
 }
+tracks/25/type = "value"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("Sprite2D:visible")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_by037"]
 _data = {
@@ -1310,7 +1346,7 @@ shape = SubResource("CircleShape2D_am8bo")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 show_behind_parent = true
-scale = Vector2(0.3, 0.3)
+scale = Vector2(0.190381, 0.189741)
 texture = ExtResource("3_hqwys")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -1350,7 +1386,6 @@ bones = ["Torso", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 [node name="BackArmAttack" type="Polygon2D" parent="Polygons"]
 visible = false
 position = Vector2(-30, -530)
-scale = Vector2(1, 1)
 texture = ExtResource("6_y7e0a")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(113.24, 172.33, 376.56, 338.237, 429.832, 243.868, 531.812, 53.608, 785.999, 7.94569, 939.729, 172.33, 865.147, 434.128, 712.939, 660.917, 429.832, 621.343, 163.469, 517.842, 35.6142, 336.715)
@@ -1449,7 +1484,6 @@ rest = Transform2D(-0.94028, 0.340402, -0.340402, -0.94028, 15.3667, 2.63333)
 [node name="FrontArm" type="Bone2D" parent="Skeleton2D/Torso"]
 position = Vector2(15.6667, -4.53333)
 rotation = -2.75542
-scale = Vector2(1, 1)
 rest = Transform2D(-0.926357, -0.376647, 0.376647, -0.926357, 15.6667, -4.53333)
 
 [node name="BackLeg" type="Bone2D" parent="Skeleton2D/Torso"]
@@ -1463,7 +1497,6 @@ bone_angle = 0.0
 [node name="FrontLeg" type="Bone2D" parent="Skeleton2D/Torso"]
 position = Vector2(-2.7, -5.6)
 rotation = 3.08955
-scale = Vector2(1, 1)
 rest = Transform2D(-0.998646, 0.0520149, -0.0520149, -0.998646, -2.7, -5.6)
 auto_calculate_length_and_angle = false
 length = 13.0
@@ -1472,7 +1505,6 @@ bone_angle = 0.0
 [node name="Tail" type="Bone2D" parent="Skeleton2D/Torso"]
 position = Vector2(3.4, -12.6333)
 rotation = -1.53639
-scale = Vector2(1, 1)
 rest = Transform2D(0.0343963, -0.999408, 0.999408, 0.0343963, 3.4, -12.6333)
 auto_calculate_length_and_angle = false
 length = 5.0
@@ -1491,3 +1523,5 @@ stream = ExtResource("11_wrpcr")
 stream = ExtResource("12_6wh7o")
 volume_db = -20.0
 pitch_scale = 0.8
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

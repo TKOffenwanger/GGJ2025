@@ -28,14 +28,17 @@ var _flip_h : bool = false:
 			$Skeleton2D.scale.x *= -1
 		_flip_h = value
 
+var is_attacking : bool = false
+
 func _input(event):
 	if event.is_action_released("grab"):
-		_wahwah.stop()
-		_brain_blast.pitch_scale = randf_range(0.9, 1.1)
-		_brain_blast.play()
+		is_attacking = false
 		for nerd in _grabbed_fools:
 			if is_instance_valid(nerd):
 				nerd.get_ungrab(psychic_throw_force)
+				_wahwah.stop()
+				_brain_blast.pitch_scale = randf_range(0.9, 1.1)
+				_brain_blast.play()
 			_grabbed_fools.erase(nerd)
 
 func _physics_process(delta: float) -> void:
@@ -54,12 +57,13 @@ func _physics_process(delta: float) -> void:
 		var mouse_direction = (get_global_mouse_position() - global_position).normalized()
 		grab_bubble.position = mouse_direction*bubble_radius*210 #Hardcoded pixel radius of current circle
 		grab_bubble.scale = bubble_radius * Vector2.ONE
-		_wahwah.play()
 		var grabbable_fools = grab_bubble.get_overlapping_bodies()
 		for grabbable in grabbable_fools:
 			if not grabbable.has_method("get_grabbed"):
 				print("BROKEN grabbable ", grabbable)
 				continue
+			_wahwah.play()
+			is_attacking = true
 			grabbable.get_grabbed(grab_bubble)
 			_grabbed_fools.append(grabbable)
 		#Stop moving
@@ -82,16 +86,14 @@ func _physics_process(delta: float) -> void:
 
 func _play_animation():
 	if Input.is_action_pressed("grab"): #attack
-		_playerAnimator.play(&"RESET")
-		_playerAnimator.advance(0)
-		_playerAnimator.play("Attack")
+		_playerAnimator.play("Attack 2")
+				
 	elif velocity.length() > 0: #Walk
 		_playerAnimator.play("Walk-loop")
-		_flip_h = _move_dir.x < 0 #flip sprites if heading left
 	else: #Idle
-		_playerAnimator.play(&"RESET")
-		_playerAnimator.advance(0)
 		_playerAnimator.play("Idle-loop")
+	if _move_dir.x != 0:
+		_flip_h = _move_dir.x < 0 #flip sprites if heading left
 
 func _player_die():
 	print("Heckin died ", bubble_radius)
