@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://cp3lf2cmvqq32"]
+[gd_scene load_steps=3 format=3 uid="uid://b1ik63hu7l6n4"]
 
 [ext_resource type="PackedScene" uid="uid://cdr41qlx3q5pe" path="res://resources/enemy.tscn" id="1_ay82g"]
 [ext_resource type="Texture2D" uid="uid://cx73skgqm6wx2" path="res://Enemy Variants/OldMan.png" id="2_4y62d"]
@@ -19,6 +19,8 @@ texture = ExtResource("2_4y62d")
 
 [node name="Head_Enemy" parent="Sprites" index="4"]
 texture = ExtResource("2_4y62d")
+polygon = PackedVector2Array(146.728, 244.187, 65.333, 284.884, -62.1864, 463.954, 8.3562, 651.163, 59.9066, 868.217, 293.24, 976.745, 645.953, 1101.55, 909.131, 1106.98, 1185.88, 857.365, 1259.13, 526.357, 1302.54, 331.008, 1039.36, 241.473, 732.775, 0.000457764, 491.302, 2.71364, 304.093, 179.07)
+uv = PackedVector2Array(146.728, 244.187, 65.333, 284.884, -24.2019, 510.078, 8.3562, 651.163, 59.9066, 868.217, 293.24, 976.745, 645.953, 1101.55, 922.697, 1120.54, 1172.31, 838.372, 1259.13, 526.357, 1302.54, 331.008, 1039.36, 241.473, 732.775, 0.000457764, 491.302, 2.71364, 304.093, 179.07)
 
 [node name="FrontArm_Enemy" parent="Sprites" index="5"]
 texture = ExtResource("2_4y62d")

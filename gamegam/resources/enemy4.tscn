@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://boiw1vb24v8v6"]
+[gd_scene load_steps=3 format=3 uid="uid://dr3yfparyie8q"]
 
 [ext_resource type="PackedScene" uid="uid://cdr41qlx3q5pe" path="res://resources/enemy.tscn" id="1_t5bo1"]
 [ext_resource type="Texture2D" uid="uid://c7ruexoycl77l" path="res://Enemy Variants/Woman.png" id="2_2uvmf"]
@@ -13,12 +13,16 @@ texture = ExtResource("2_2uvmf")
 
 [node name="Torso_Enemy" parent="Sprites" index="2"]
 texture = ExtResource("2_2uvmf")
+polygon = PackedVector2Array(287.814, 1210.08, 81.6121, 1478.68, 24.6354, 1804.26, 111.457, 2007.75, 404.48, 2086.43, 651.38, 2002.33, 651.38, 1787.98, 686.651, 1568.22, 664.945, 1283.33, 532, 1161.24)
+uv = PackedVector2Array(287.814, 1210.08, 81.6121, 1478.68, 24.6354, 1804.26, 111.457, 2007.75, 404.48, 2086.43, 651.38, 2002.33, 651.38, 1787.98, 713.783, 1530.23, 664.945, 1283.33, 532, 1161.24)
 
 [node name="FrontLeg_Enemy" parent="Sprites" index="3"]
 texture = ExtResource("2_2uvmf")
 
 [node name="Head_Enemy" parent="Sprites" index="4"]
 texture = ExtResource("2_2uvmf")
+polygon = PackedVector2Array(-12.9943, 15.7185, -75.3975, 287.036, -29.2735, 520.37, 8.3562, 651.163, 59.9066, 868.217, 293.24, 976.745, 632.742, 1111.84, 933.905, 1063.01, 1197.08, 797.114, 1259.13, 526.357, 1302.54, 331.008, 1039.36, 241.473, 732.775, 0.000457764, 491.302, 2.71364, 168.788, -49.3978)
+uv = PackedVector2Array(54.8351, 31.9975, -37.413, 284.323, 95.178, 537.21, 8.3562, 651.163, 59.9066, 868.217, 293.24, 976.745, 645.953, 1101.55, 920.339, 1063.01, 1129.25, 764.556, 1259.13, 526.357, 1302.54, 331.008, 1039.36, 241.473, 732.775, 0.000457764, 491.302, 2.71364, 239.331, -30.4056)
 
 [node name="FrontArm_Enemy" parent="Sprites" index="5"]
 texture = ExtResource("2_2uvmf")
