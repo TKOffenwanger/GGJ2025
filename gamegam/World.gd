@@ -20,6 +20,7 @@ var _avg_cam_distance:
 
 func _ready():
 	# Start first wave
+	_player_node.player_died.connect(_on_player_player_died)
 	_enemies_spawns_left = waves.pop_front()
 	_spawn_timer.start(1.0)
 
@@ -50,3 +51,13 @@ func _on_between_spawns_timeout():
 	elif _enemies_left_alive <= 0:
 		_wave_timer.start(2.0)
 		_spawn_timer.paused = true
+
+
+func _on_player_player_died():
+	var cam : Camera2D = _player_node.camera
+	var cam_pos = cam.global_position
+	cam.position_smoothing_enabled = false
+	_player_node.remove_child(cam)
+	self.add_child(cam)
+	cam.global_position = cam_pos
+	_player_node.queue_free()

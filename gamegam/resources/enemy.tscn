@@ -590,6 +590,7 @@ freeze_mode = 1
 continuous_cd = 2
 contact_monitor = true
 max_contacts_reported = 10
+angular_damp = 5.0
 script = ExtResource("1_44l0r")
 speed = 5.0
 

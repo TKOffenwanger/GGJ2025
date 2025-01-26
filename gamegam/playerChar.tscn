@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cf64g4wetn83f"]
+[gd_scene load_steps=22 format=3 uid="uid://dhkmvxivl7x33"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_tdex7"]
 [ext_resource type="Texture2D" uid="uid://b555p66bqnohc" path="res://SImple Circle.svg" id="2_afpqx"]
@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://dkcc8q2gn7pn5" path="res://Bunny Parts/Torso.png" id="8_o8spg"]
 [ext_resource type="Texture2D" uid="uid://betsotnrnorwy" path="res://Bunny Parts/Head.png" id="9_xiriy"]
 [ext_resource type="Texture2D" uid="uid://bon0ovh1iw5vc" path="res://Bunny Parts/Front Arm.png" id="10_x41kr"]
+[ext_resource type="AudioStream" uid="uid://bpiy361k7hjm4" path="res://audio/space shield sounds - 1.ogg" id="11_wrpcr"]
+[ext_resource type="AudioStream" uid="uid://bddwrhwoaa5o2" path="res://audio/flaunch.wav" id="12_6wh7o"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_am8bo"]
 radius = 215.523
@@ -18,8 +20,8 @@ radius = 215.523
 radius = 80.0562
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1e28o"]
-radius = 1.2743
-height = 2.72138
+radius = 1.1501
+height = 3.21234
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0bqg0"]
 load_path = "res://.godot/imported/Front Leg.png-5954abd1398d98c857486030ecfea6b0.ctex"
@@ -444,7 +446,7 @@ scale = Vector2(0.3, 0.3)
 texture = ExtResource("3_hqwys")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(0.5, 0.5)
+zoom = Vector2(0.25, 0.25)
 position_smoothing_enabled = true
 
 [node name="GrabBubble" type="Area2D" parent="."]
@@ -460,8 +462,8 @@ scale = Vector2(0.1, 0.1)
 texture = ExtResource("4_vonpd")
 
 [node name="Collider" type="CollisionShape2D" parent="."]
-position = Vector2(1, 32)
-scale = Vector2(51.3, 46.78)
+position = Vector2(8, -18)
+scale = Vector2(51.3, 62.26)
 shape = SubResource("CapsuleShape2D_1e28o")
 
 [node name="Polygons" type="Node2D" parent="."]
@@ -591,3 +593,11 @@ libraries = {
 "": SubResource("AnimationLibrary_by037")
 }
 autoplay = "Idle-loop"
+
+[node name="Wahwah" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_wrpcr")
+
+[node name="BrainBlast" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_6wh7o")
+volume_db = -20.0
+pitch_scale = 0.8

@@ -1,9 +1,13 @@
 extends CharacterBody2D
 
+signal player_died
+
 @onready var camera = $Camera2D
 @onready var grab_bubble = $GrabBubble
 @onready var _playerAnimator : AnimationPlayer = $AnimationPlayer
 @onready var _personal_bubble : Area2D = $PersonalBubble
+@onready var _wahwah : AudioStreamPlayer = $Wahwah
+@onready var _brain_blast : AudioStreamPlayer = $BrainBlast
 
 @export var psychic_throw_force : float = 1.0
 @export var speed : float = 400.0
@@ -12,6 +16,8 @@ extends CharacterBody2D
 	set(value):
 		bubble_radius = clamp(value, 0.2, 3.0)
 		_personal_bubble.scale = Vector2.ONE*bubble_radius
+		if bubble_radius < 1:
+			_player_die()
 
 var _grabbed_fools : Array = []
 var _move_dir : Vector2 = Vector2.ZERO
@@ -24,6 +30,9 @@ var _flip_h : bool = false:
 
 func _input(event):
 	if event.is_action_released("grab"):
+		_wahwah.stop()
+		_brain_blast.pitch_scale = randf_range(0.9, 1.1)
+		_brain_blast.play()
 		for nerd in _grabbed_fools:
 			if is_instance_valid(nerd):
 				nerd.get_ungrab(psychic_throw_force)
@@ -36,7 +45,7 @@ func _physics_process(delta: float) -> void:
 	#Bubble physics
 	if _personal_bubble.has_overlapping_bodies():
 		var num_enemies = _personal_bubble.get_overlapping_bodies().size()
-		bubble_radius -= delta * num_enemies
+		bubble_radius -= delta * num_enemies / 5
 	else:
 		bubble_radius += delta
 	
@@ -45,6 +54,7 @@ func _physics_process(delta: float) -> void:
 		var mouse_direction = (get_global_mouse_position() - global_position).normalized()
 		grab_bubble.position = mouse_direction*bubble_radius*210 #Hardcoded pixel radius of current circle
 		grab_bubble.scale = bubble_radius * Vector2.ONE
+		_wahwah.play()
 		var grabbable_fools = grab_bubble.get_overlapping_bodies()
 		for grabbable in grabbable_fools:
 			if not grabbable.has_method("get_grabbed"):
@@ -78,3 +88,8 @@ func _play_animation():
 		_flip_h = _move_dir.x < 0 #flip sprites if heading left
 	else: #Idle
 		_playerAnimator.play("Idle-loop")
+
+func _player_die():
+	print("Heckin died ", bubble_radius)
+	player_died.emit()
+	

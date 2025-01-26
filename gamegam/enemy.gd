@@ -11,6 +11,7 @@ var _how_fast_I_was_just_going : float = 0.0
 var _rag_dolled : bool = false:
 	set(value):
 		freeze = not value
+		lock_rotation = not value
 		_rag_dolled = value
 var _grabbed : bool = false:
 	set(value):
@@ -21,6 +22,7 @@ func get_grabbed(grab_origin : Node2D):
 	_rag_dolled = true
 	_grabbed = true
 	_pulled_toward = grab_origin
+	apply_torque_impulse(-100 if randf() > 0.5 else 100)
 
 func get_ungrab(force : float):
 	linear_velocity = linear_velocity * force
@@ -28,6 +30,7 @@ func get_ungrab(force : float):
 
 func reset_to_normal():
 	_rag_dolled = false
+	rotation = 0.0
 
 func _physics_process(delta):
 	if _grabbed:
@@ -42,7 +45,7 @@ func _physics_process(delta):
 	_how_fast_I_was_just_going = linear_velocity.length()
 
 func _on_body_entered(body):
-	if body.is_in_group("Player"):
+	if body.is_in_group("Player") or (body.is_in_group("Enemy") and body._grabbed):
 		return
 	if _rag_dolled and _how_fast_I_was_just_going > 5000.0:
 		just_died.emit()
