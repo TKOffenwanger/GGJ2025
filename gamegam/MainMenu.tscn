@@ -70,8 +70,6 @@ position = Vector2(459.12, 419.287)
 scale = Vector2(1.58035, 1.58035)
 texture = ExtResource("7_k4c3e")
 
-[node name="SceneTransitionAnimation" parent="." instance=ExtResource("11_qes5t")]
-
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -140,6 +138,8 @@ toggle_mode = true
 texture_normal = ExtResource("9_1crqv")
 texture_pressed = ExtResource("10_to4x1")
 script = ExtResource("9_ra8vu")
+
+[node name="SceneTransitionAnimation" parent="." instance=ExtResource("11_qes5t")]
 
 [connection signal="pressed" from="VBoxContainer/Start Game" to="." method="_on_start_game_pressed"]
 [connection signal="pressed" from="VBoxContainer/Exit Game" to="." method="_on_exit_game_pressed"]

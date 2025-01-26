@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://dhkmvxivl7x33"]
+[gd_scene load_steps=35 format=3 uid="uid://cf64g4wetn83f"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_tdex7"]
 [ext_resource type="Texture2D" uid="uid://dq8s2jc5lg54t" path="res://Graphic/Bubble(1).png" id="2_hdmy6"]
@@ -23,7 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://br3yilih7bx2w" path="res://Graphic/bubble frames/Timeline 1_0008.png" id="12_ldibj"]
 [ext_resource type="Texture2D" uid="uid://d3wxnmvyq6u2b" path="res://Bunny Parts/FrontArmAttack.png" id="12_mwi2i"]
 [ext_resource type="Texture2D" uid="uid://14fd23111et5" path="res://Graphic/bubble frames/Timeline 1_0009.png" id="13_vce1j"]
-[ext_resource type="Animation" uid="uid://cvom78pjw1ocp" path="res://Attack.res" id="13_yoosc"]
+[ext_resource type="Animation" uid="uid://bedahfiotigfo" path="res://Attack.res" id="13_yoosc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_am8bo"]
 radius = 215.523

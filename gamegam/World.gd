@@ -9,6 +9,7 @@ extends Node2D
 @onready var _player_death_scene = preload("res://resources/player_death_animation.tscn")
 @onready var _wave_timer : Timer = $BetweenWaves
 @onready var _spawn_timer : Timer = $BetweenSpawns
+@onready var SceneTransitionAnimation = $SceneTransitionAnimation/AnimationPlayer
 
 ## How many waves, how many per wave
 @export var waves : Array[int] = [
@@ -25,6 +26,9 @@ var _avg_cam_distance:
 
 func _ready():
 	# Start first wave
+	SceneTransitionAnimation.play("fade_out")
+	await get_tree().create_timer(0.8).timeout
+	$SceneTransitionAnimation.visible = false
 	_player_node.player_died.connect(_on_player_player_died)
 	_enemies_spawns_left = waves.pop_front()
 	_spawn_timer.start(1.0)
