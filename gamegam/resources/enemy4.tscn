@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://boiw1vb24v8v6"]
+
+[ext_resource type="PackedScene" uid="uid://cdr41qlx3q5pe" path="res://resources/enemy.tscn" id="1_t5bo1"]
+[ext_resource type="Texture2D" uid="uid://c7ruexoycl77l" path="res://Enemy Variants/Woman.png" id="2_2uvmf"]
+
+[node name="Enemy" instance=ExtResource("1_t5bo1")]
+
+[node name="BackArm_Enemy" parent="Sprites" index="0"]
+texture = ExtResource("2_2uvmf")
+
+[node name="BackLeg_Enemy" parent="Sprites" index="1"]
+texture = ExtResource("2_2uvmf")
+
+[node name="Torso_Enemy" parent="Sprites" index="2"]
+texture = ExtResource("2_2uvmf")
+
+[node name="FrontLeg_Enemy" parent="Sprites" index="3"]
+texture = ExtResource("2_2uvmf")
+
+[node name="Head_Enemy" parent="Sprites" index="4"]
+texture = ExtResource("2_2uvmf")
+
+[node name="FrontArm_Enemy" parent="Sprites" index="5"]
+texture = ExtResource("2_2uvmf")

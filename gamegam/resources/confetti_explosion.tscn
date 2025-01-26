@@ -1,0 +1,66 @@
+[gd_scene load_steps=10 format=3 uid="uid://dfjffsua87sfu"]
+
+[ext_resource type="Script" path="res://confetti_explosion.gd" id="1_bwto0"]
+[ext_resource type="Texture2D" uid="uid://bbvklk2gm2871" path="res://Graphic/Confetti1.png" id="2_ij4xj"]
+[ext_resource type="Texture2D" uid="uid://dno3ng6572vo1" path="res://Graphic/Confetti3.png" id="3_oudk6"]
+[ext_resource type="Texture2D" uid="uid://cjx3odu4jkejn" path="res://Graphic/Confetti2.png" id="4_opmvy"]
+
+[sub_resource type="Gradient" id="Gradient_31e4t"]
+offsets = PackedFloat32Array(0, 0.278689, 0.704918, 1)
+colors = PackedColorArray(1, 0.766667, 0, 1, 0, 0.816667, 1, 1, 0.766666, 0, 1, 1, 0.99, 0.759, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_jnkad"]
+gradient = SubResource("Gradient_31e4t")
+
+[sub_resource type="Gradient" id="Gradient_oopii"]
+offsets = PackedFloat32Array(0.819672, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_0y5m0"]
+gradient = SubResource("Gradient_oopii")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7gemk"]
+particle_flag_disable_z = true
+particle_flag_damping_as_friction = true
+angular_velocity_min = -1.60933e-05
+angular_velocity_max = 300.0
+radial_velocity_min = -2.23517e-05
+radial_velocity_max = 500.0
+gravity = Vector3(0, 0, 0)
+damping_min = 100.0
+damping_max = 100.0
+scale_min = 0.8
+scale_max = 1.2
+color_ramp = SubResource("GradientTexture1D_0y5m0")
+color_initial_ramp = SubResource("GradientTexture1D_jnkad")
+
+[node name="ConfettiExplosion" type="Node2D"]
+position = Vector2(-894, 2)
+script = ExtResource("1_bwto0")
+
+[node name="Noodle" type="GPUParticles2D" parent="."]
+amount = 10
+process_material = SubResource("ParticleProcessMaterial_7gemk")
+texture = ExtResource("2_ij4xj")
+explosiveness = 1.0
+randomness = 0.1
+
+[node name="Stoodles" type="GPUParticles2D" parent="."]
+amount = 10
+process_material = SubResource("ParticleProcessMaterial_7gemk")
+texture = ExtResource("3_oudk6")
+explosiveness = 1.0
+randomness = 0.1
+
+[node name="Doodles" type="GPUParticles2D" parent="."]
+amount = 10
+process_material = SubResource("ParticleProcessMaterial_7gemk")
+texture = ExtResource("4_opmvy")
+explosiveness = 1.0
+randomness = 0.1
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

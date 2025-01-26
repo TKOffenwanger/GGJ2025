@@ -87,7 +87,6 @@ func _physics_process(delta: float) -> void:
 func _play_animation():
 	if Input.is_action_pressed("grab"): #attack
 		_playerAnimator.play("Attack 2")
-				
 	elif velocity.length() > 0: #Walk
 		_playerAnimator.play("Walk-loop")
 	else: #Idle
@@ -96,6 +95,5 @@ func _play_animation():
 		_flip_h = _move_dir.x < 0 #flip sprites if heading left
 
 func _player_die():
-	print("Heckin died ", bubble_radius)
 	player_died.emit()
 	
