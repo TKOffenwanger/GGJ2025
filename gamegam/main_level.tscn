@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://6x1us73bdc73"]
+[gd_scene load_steps=29 format=4 uid="uid://6x1us73bdc73"]
 
 [ext_resource type="Script" path="res://World.gd" id="1_fclhu"]
 [ext_resource type="Texture2D" uid="uid://dqp3b76mc0u0f" path="res://demo tileset.png" id="1_msca3"]
@@ -10,12 +10,15 @@
 [ext_resource type="PackedScene" uid="uid://cwwnqoyda5cpv" path="res://pause_menu.tscn" id="6_m6qbc"]
 [ext_resource type="Texture2D" uid="uid://d3xgyeburynjl" path="res://Set Decor/Balloon Cart.png" id="8_l8mbi"]
 [ext_resource type="Texture2D" uid="uid://cljaqyy0cvmxq" path="res://Set Decor/Icecream Cart.png" id="9_14vca"]
+[ext_resource type="PackedScene" uid="uid://ba2wmcug8o71c" path="res://Entry_menu.tscn" id="9_skhkm"]
 [ext_resource type="Texture2D" uid="uid://cstw5cr0d87x" path="res://Set Decor/Tree 1.png" id="10_j5w85"]
+[ext_resource type="Script" path="res://Entry_Menu.gd" id="10_sjkex"]
 [ext_resource type="Texture2D" uid="uid://cdeem8kj7sro5" path="res://Set Decor/Tree 2.png" id="11_xdupc"]
 [ext_resource type="Texture2D" uid="uid://c2hefl3350gfk" path="res://Set Decor/Tree 3.png" id="12_367qy"]
 [ext_resource type="Texture2D" uid="uid://yfw2ueou3epf" path="res://Set Decor/BunnyFountain.png" id="14_if6hy"]
 [ext_resource type="Texture2D" uid="uid://clc2fj8tuf51c" path="res://Set Decor/lampost.png" id="15_y8n4a"]
-[ext_resource type="PackedScene" uid="uid://s4niisvak75c" path="res://scene_transition_animation.tscn" id="16_or33g"]
+[ext_resource type="PackedScene" path="res://scene_transition_animation.tscn" id="16_or33g"]
+[ext_resource type="AudioStream" uid="uid://c2724bif0g2eq" path="res://audio/Level Music.mp3" id="19_x3gl0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xkspx"]
 texture = ExtResource("1_msca3")
@@ -177,6 +180,9 @@ position = Vector2(-54, 973)
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("6_m6qbc")]
 size_flags_horizontal = 0
 size_flags_vertical = 4
+
+[node name="EntryMenu" parent="CanvasLayer" instance=ExtResource("9_skhkm")]
+script = ExtResource("10_sjkex")
 
 [node name="Trees" type="CanvasGroup" parent="."]
 y_sort_enabled = true
@@ -882,6 +888,11 @@ shape = SubResource("RectangleShape2D_8toxk")
 [node name="SceneTransitionAnimation" parent="." instance=ExtResource("16_or33g")]
 z_index = 10
 position = Vector2(-2436, -714)
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("19_x3gl0")
+volume_db = -15.0
+autoplay = true
 
 [connection signal="timeout" from="BetweenSpawns" to="." method="_on_between_spawns_timeout"]
 [connection signal="timeout" from="BetweenWaves" to="." method="_on_between_waves_timeout"]
