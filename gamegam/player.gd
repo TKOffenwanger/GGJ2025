@@ -6,6 +6,7 @@ signal player_died
 @onready var grab_bubble = $GrabBubble
 @onready var _playerAnimator : AnimationPlayer = $AnimationPlayer
 @onready var _personal_bubble : Area2D = $PersonalBubble
+@onready var _grab_bubble_graphic : AnimatedSprite2D = $GrabBubble/AnimatedSprite2D
 @onready var _wahwah : AudioStreamPlayer = $Wahwah
 @onready var _brain_blast : AudioStreamPlayer = $BrainBlast
 
@@ -54,6 +55,7 @@ func _physics_process(delta: float) -> void:
 	
 	# Grab bubble
 	if Input.is_action_pressed("grab"):
+		_grab_bubble_graphic.visible = true
 		var mouse_direction = (get_global_mouse_position() - global_position).normalized()
 		grab_bubble.position = mouse_direction*bubble_radius*210 #Hardcoded pixel radius of current circle
 		grab_bubble.scale = bubble_radius * Vector2.ONE
@@ -69,7 +71,7 @@ func _physics_process(delta: float) -> void:
 		#Stop moving
 		velocity = velocity.move_toward(Vector2.ZERO, speed*delta/skid_time)
 	else:
-		
+		_grab_bubble_graphic.visible = false
 		# Get where we goin
 		_move_dir = Vector2(Input.get_axis("move_left", "move_right"), Input.get_axis("move_up", "move_down"))
 		
