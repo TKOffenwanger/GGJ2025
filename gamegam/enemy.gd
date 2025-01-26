@@ -41,6 +41,7 @@ func reset_to_normal():
 	rotation = 0.0
 
 func _physics_process(delta):
+	if !is_instance_valid(player_node): return
 	if _grabbed:
 		apply_impulse(_pulled_toward.global_position - global_position)
 	elif _rag_dolled:
