@@ -6,6 +6,7 @@ signal player_died
 @onready var grab_bubble = $GrabBubble
 @onready var _playerAnimator : AnimationPlayer = $AnimationPlayer
 @onready var _personal_bubble : Area2D = $PersonalBubble
+@onready var _grab_bubble_graphic : AnimatedSprite2D = $GrabBubble/AnimatedSprite2D
 @onready var _wahwah : AudioStreamPlayer = $Wahwah
 @onready var _brain_blast : AudioStreamPlayer = $BrainBlast
 
@@ -28,20 +29,21 @@ var _flip_h : bool = false:
 			$Skeleton2D.scale.x *= -1
 		_flip_h = value
 
+var is_attacking : bool = false
+
 func _input(event):
 	if event.is_action_released("grab"):
-		_wahwah.stop()
-		_brain_blast.pitch_scale = randf_range(0.9, 1.1)
-		_brain_blast.play()
+		is_attacking = false
 		for nerd in _grabbed_fools:
 			if is_instance_valid(nerd):
 				nerd.get_ungrab(psychic_throw_force)
-			_grabbed_fools.erase(nerd)
+				_brain_blast.pitch_scale = randf_range(0.9, 1.1)
+				_brain_blast.play()
+		_grabbed_fools.clear()
+		_wahwah.stop()
 
 func _physics_process(delta: float) -> void:
-#	DEBUG bubble expand contract
-	bubble_radius += Input.get_axis("ShrinkBubble","ExpandBubble") * delta
-	
+#	
 	#Bubble physics
 	if _personal_bubble.has_overlapping_bodies():
 		var num_enemies = _personal_bubble.get_overlapping_bodies().size()
@@ -51,21 +53,23 @@ func _physics_process(delta: float) -> void:
 	
 	# Grab bubble
 	if Input.is_action_pressed("grab"):
+		_grab_bubble_graphic.visible = true
+		_wahwah.play()
 		var mouse_direction = (get_global_mouse_position() - global_position).normalized()
 		grab_bubble.position = mouse_direction*bubble_radius*210 #Hardcoded pixel radius of current circle
 		grab_bubble.scale = bubble_radius * Vector2.ONE
-		_wahwah.play()
 		var grabbable_fools = grab_bubble.get_overlapping_bodies()
 		for grabbable in grabbable_fools:
 			if not grabbable.has_method("get_grabbed"):
 				print("BROKEN grabbable ", grabbable)
 				continue
+			is_attacking = true
 			grabbable.get_grabbed(grab_bubble)
 			_grabbed_fools.append(grabbable)
 		#Stop moving
 		velocity = velocity.move_toward(Vector2.ZERO, speed*delta/skid_time)
 	else:
-		
+		_grab_bubble_graphic.visible = false
 		# Get where we goin
 		_move_dir = Vector2(Input.get_axis("move_left", "move_right"), Input.get_axis("move_up", "move_down"))
 		
@@ -82,17 +86,13 @@ func _physics_process(delta: float) -> void:
 
 func _play_animation():
 	if Input.is_action_pressed("grab"): #attack
-		_playerAnimator.play(&"RESET")
-		_playerAnimator.advance(0)
-		_playerAnimator.play("Attack")
+		_playerAnimator.play("Attack 2")
 	elif velocity.length() > 0: #Walk
 		_playerAnimator.play("Walk-loop")
-		if _move_dir.x != 0:
-			_flip_h = _move_dir.x < 0 #flip sprites if heading left
 	else: #Idle
-		_playerAnimator.play(&"RESET")
-		_playerAnimator.advance(0)
 		_playerAnimator.play("Idle-loop")
+	if _move_dir.x != 0:
+		_flip_h = _move_dir.x < 0 #flip sprites if heading left
 
 func _player_die():
 	player_died.emit()

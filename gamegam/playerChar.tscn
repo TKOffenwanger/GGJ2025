@@ -1,26 +1,73 @@
-[gd_scene load_steps=25 format=3 uid="uid://cf64g4wetn83f"]
+[gd_scene load_steps=35 format=3 uid="uid://dhkmvxivl7x33"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_tdex7"]
-[ext_resource type="Texture2D" uid="uid://b555p66bqnohc" path="res://SImple Circle.svg" id="2_afpqx"]
+[ext_resource type="Texture2D" uid="uid://dq8s2jc5lg54t" path="res://Graphic/Bubble(1).png" id="2_hdmy6"]
 [ext_resource type="Texture2D" uid="uid://w31lgefpawv1" path="res://VFX/Glow.png" id="3_hqwys"]
-[ext_resource type="Texture2D" uid="uid://3sen3qikw3r8" path="res://Juniper ANGER.png" id="4_vonpd"]
+[ext_resource type="Texture2D" uid="uid://shxustusvnjo" path="res://Graphic/bubble frames/Timeline 1_0000.png" id="4_1kpmk"]
 [ext_resource type="Texture2D" uid="uid://dsc2tn6m2ufc8" path="res://Bunny Parts/Back Arm.png" id="5_gk5s2"]
+[ext_resource type="Texture2D" uid="uid://bcwyito8ik1ef" path="res://Graphic/bubble frames/Timeline 1_0001.png" id="5_m7rw1"]
+[ext_resource type="Texture2D" uid="uid://l6nw5pfkm8vf" path="res://Graphic/bubble frames/Timeline 1_0002.png" id="6_4303m"]
 [ext_resource type="Texture2D" uid="uid://wmd3fp5kdss4" path="res://Bunny Parts/Back Leg.png" id="6_c616y"]
 [ext_resource type="Texture2D" uid="uid://dyqpuiq4mc4fb" path="res://Bunny Parts/BackArmAttack.png" id="6_y7e0a"]
 [ext_resource type="Texture2D" uid="uid://dujdu2r07qnb6" path="res://Bunny Parts/Tail.png" id="7_n1ids"]
+[ext_resource type="Texture2D" uid="uid://cb3ffch7db7k0" path="res://Graphic/bubble frames/Timeline 1_0003.png" id="7_u12jm"]
+[ext_resource type="Texture2D" uid="uid://dh4fgo5wye5a2" path="res://Graphic/bubble frames/Timeline 1_0004.png" id="8_juwd7"]
 [ext_resource type="Texture2D" uid="uid://dkcc8q2gn7pn5" path="res://Bunny Parts/Torso.png" id="8_o8spg"]
+[ext_resource type="Texture2D" uid="uid://bsgqwqfrw1w7d" path="res://Graphic/bubble frames/Timeline 1_0005.png" id="9_kbdl2"]
 [ext_resource type="Texture2D" uid="uid://betsotnrnorwy" path="res://Bunny Parts/Head.png" id="9_xiriy"]
+[ext_resource type="Texture2D" uid="uid://bkdngjj2j44v5" path="res://Graphic/bubble frames/Timeline 1_0006.png" id="10_4eim8"]
 [ext_resource type="Texture2D" uid="uid://bon0ovh1iw5vc" path="res://Bunny Parts/Front Arm.png" id="10_x41kr"]
+[ext_resource type="Texture2D" uid="uid://d1wkj373yxpuh" path="res://Graphic/bubble frames/Timeline 1_0007.png" id="11_i6w6e"]
 [ext_resource type="AudioStream" uid="uid://bpiy361k7hjm4" path="res://audio/space shield sounds - 1.ogg" id="11_wrpcr"]
 [ext_resource type="AudioStream" uid="uid://bddwrhwoaa5o2" path="res://audio/flaunch.wav" id="12_6wh7o"]
+[ext_resource type="Texture2D" uid="uid://br3yilih7bx2w" path="res://Graphic/bubble frames/Timeline 1_0008.png" id="12_ldibj"]
 [ext_resource type="Texture2D" uid="uid://d3wxnmvyq6u2b" path="res://Bunny Parts/FrontArmAttack.png" id="12_mwi2i"]
-[ext_resource type="Animation" path="res://Attack.res" id="13_yoosc"]
+[ext_resource type="Texture2D" uid="uid://14fd23111et5" path="res://Graphic/bubble frames/Timeline 1_0009.png" id="13_vce1j"]
+[ext_resource type="Animation" uid="uid://cvom78pjw1ocp" path="res://Attack.res" id="13_yoosc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_am8bo"]
 radius = 215.523
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8gwon"]
 radius = 80.0562
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_281te"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_1kpmk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_m7rw1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_4303m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_u12jm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_juwd7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_kbdl2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_4eim8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_i6w6e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_ldibj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_vce1j")
+}],
+"loop": true,
+"name": &"default",
+"speed": 20.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1e28o"]
 radius = 1.1501
@@ -370,6 +417,30 @@ tracks/23/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("Polygons/FrontArmAttack:visible")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/25/type = "value"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("Sprite2D:visible")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_f6p5u"]
@@ -1278,6 +1349,18 @@ tracks/24/keys = {
 "update": 0,
 "values": [Vector2(1, 1)]
 }
+tracks/25/type = "value"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("Sprite2D:visible")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_by037"]
 _data = {
@@ -1302,15 +1385,16 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="BubbleSprite" type="Sprite2D" parent="PersonalBubble"]
-modulate = Color(0.968738, 0.000374457, 0.885118, 0.258824)
-texture = ExtResource("2_afpqx")
+modulate = Color(0.97, 0.97, 0.97, 1)
+scale = Vector2(0.11, 0.11)
+texture = ExtResource("2_hdmy6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PersonalBubble"]
 shape = SubResource("CircleShape2D_am8bo")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 show_behind_parent = true
-scale = Vector2(0.3, 0.3)
+scale = Vector2(0.190381, 0.189741)
 texture = ExtResource("3_hqwys")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -1325,9 +1409,12 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GrabBubble"]
 shape = SubResource("CircleShape2D_8gwon")
 
-[node name="Sprite2D" type="Sprite2D" parent="GrabBubble"]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("4_vonpd")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="GrabBubble"]
+position = Vector2(-2, 7)
+scale = Vector2(0.45, 0.45)
+sprite_frames = SubResource("SpriteFrames_281te")
+autoplay = "default"
+frame_progress = 0.690186
 
 [node name="Collider" type="CollisionShape2D" parent="."]
 position = Vector2(8, -18)
@@ -1487,3 +1574,5 @@ stream = ExtResource("11_wrpcr")
 stream = ExtResource("12_6wh7o")
 volume_db = -20.0
 pitch_scale = 0.8
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

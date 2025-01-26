@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3ysqmkhand4j"]
+
+[ext_resource type="PackedScene" uid="uid://cdr41qlx3q5pe" path="res://resources/enemy.tscn" id="1_2306i"]
+[ext_resource type="Texture2D" uid="uid://bgy3bag62oeqs" path="res://Enemy Variants/enemy.png" id="2_6mmbb"]
+
+[node name="Enemy" instance=ExtResource("1_2306i")]
+
+[node name="BackArm_Enemy" parent="Sprites" index="0"]
+texture = ExtResource("2_6mmbb")
+
+[node name="BackLeg_Enemy" parent="Sprites" index="1"]
+texture = ExtResource("2_6mmbb")
+
+[node name="Torso_Enemy" parent="Sprites" index="2"]
+texture = ExtResource("2_6mmbb")
+
+[node name="FrontLeg_Enemy" parent="Sprites" index="3"]
+texture = ExtResource("2_6mmbb")
+
+[node name="Head_Enemy" parent="Sprites" index="4"]
+texture = ExtResource("2_6mmbb")
+
+[node name="FrontArm_Enemy" parent="Sprites" index="5"]
+texture = ExtResource("2_6mmbb")
