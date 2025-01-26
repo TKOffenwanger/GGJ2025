@@ -7,6 +7,7 @@ extends RigidBody2D
 signal just_died
 
 var _pulled_toward : Node2D = null
+var _how_fast_I_was_just_going : float = 0.0
 var _rag_dolled : bool = false:
 	set(value):
 		freeze = not value
@@ -38,9 +39,12 @@ func _physics_process(delta):
 		var velocity = (player_node.position - position).normalized() * speed
 		#position += velocity * del*ta
 		move_and_collide(velocity)
+	_how_fast_I_was_just_going = linear_velocity.length()
 
 func _on_body_entered(body):
-	if _rag_dolled and not _grabbed and linear_velocity.length() > 1:
+	if body.is_in_group("Player"):
+		return
+	if _rag_dolled and _how_fast_I_was_just_going > 5000.0:
 		just_died.emit()
 		queue_free()
 	else:
