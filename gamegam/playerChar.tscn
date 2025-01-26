@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dhkmvxivl7x33"]
+[gd_scene load_steps=22 format=3 uid="uid://dhkmvxivl7x33"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_tdex7"]
 [ext_resource type="Texture2D" uid="uid://b555p66bqnohc" path="res://SImple Circle.svg" id="2_afpqx"]
@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://dkcc8q2gn7pn5" path="res://Bunny Parts/Torso.png" id="8_o8spg"]
 [ext_resource type="Texture2D" uid="uid://betsotnrnorwy" path="res://Bunny Parts/Head.png" id="9_xiriy"]
 [ext_resource type="Texture2D" uid="uid://bon0ovh1iw5vc" path="res://Bunny Parts/Front Arm.png" id="10_x41kr"]
+[ext_resource type="AudioStream" uid="uid://bpiy361k7hjm4" path="res://audio/space shield sounds - 1.ogg" id="11_wrpcr"]
+[ext_resource type="AudioStream" uid="uid://bddwrhwoaa5o2" path="res://audio/flaunch.wav" id="12_6wh7o"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_am8bo"]
 radius = 215.523
@@ -591,3 +593,11 @@ libraries = {
 "": SubResource("AnimationLibrary_by037")
 }
 autoplay = "Idle-loop"
+
+[node name="Wahwah" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_wrpcr")
+
+[node name="BrainBlast" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_6wh7o")
+volume_db = -20.0
+pitch_scale = 0.8
