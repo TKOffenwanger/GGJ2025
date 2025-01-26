@@ -1,8 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://cwwnqoyda5cpv"]
+[gd_scene load_steps=9 format=3 uid="uid://cwwnqoyda5cpv"]
 
 [ext_resource type="Shader" path="res://pause_menu.gdshader" id="1_7npjw"]
 [ext_resource type="Script" path="res://pause_menu.gd" id="1_ra6pd"]
-[ext_resource type="Texture2D" uid="uid://dd8vkwug2iwde" path="res://doobie.png" id="1_u1ueo"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_j0525"]
 shader = ExtResource("1_7npjw")
@@ -253,9 +252,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -119.0
-offset_top = -291.0
+offset_top = -145.0
 offset_right = 119.0
-offset_bottom = -128.0
+offset_bottom = 18.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -272,20 +271,15 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -176.0
-offset_top = 19.0
+offset_top = -81.5
 offset_right = 176.0
-offset_bottom = 182.0
+offset_bottom = 81.5
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
 layout_mode = 2
 size_flags_vertical = 4
-
-[node name="Sprite2D" type="Sprite2D" parent="PanelContainer/VBoxContainer"]
-position = Vector2(179, -159)
-scale = Vector2(0.408444, 0.408444)
-texture = ExtResource("1_u1ueo")
 
 [node name="Continue" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2

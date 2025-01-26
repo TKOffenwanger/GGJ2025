@@ -143,13 +143,13 @@ tile_proxies/coords_level = [[0, Vector2i(0, 0)], [22, Vector2i(0, 0)], [2, Vect
 y_sort_enabled = true
 position = Vector2(576, 324)
 script = ExtResource("1_fclhu")
-waves = Array[int]([4, 8, 16])
+waves = Array[int]([4])
 
 [node name="BetweenSpawns" type="Timer" parent="."]
 wait_time = 2.0
 
 [node name="BetweenWaves" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 4.0
 one_shot = true
 
 [node name="BottomMapLayer" type="TileMapLayer" parent="."]

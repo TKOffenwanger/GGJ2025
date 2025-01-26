@@ -18,7 +18,7 @@ var _pulled_toward : Node2D = null
 var _how_fast_I_was_just_going : float = 0.0
 var _rag_dolled : bool = false:
 	set(value):
-		freeze = not value
+		set_deferred("freeze", not value)
 		lock_rotation = not value
 		_rag_dolled = value
 var _grabbed : bool = false:
@@ -62,8 +62,9 @@ func _on_body_entered(body):
 		get_tree().get_root().add_child(confetti)
 		confetti.global_position = global_position
 		queue_free()
-	else:
-		_rag_dolled = true
+	elif "_how_fast_I_was_just_going" in body:
+		if body._how_fast_I_was_just_going > 500:
+			_rag_dolled = true
 
 func _play_animation():
 	
