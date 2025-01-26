@@ -1,8 +1,8 @@
-[gd_scene load_steps=25 format=4 uid="uid://6x1us73bdc73"]
+[gd_scene load_steps=27 format=4 uid="uid://6x1us73bdc73"]
 
 [ext_resource type="Script" path="res://World.gd" id="1_fclhu"]
 [ext_resource type="Texture2D" uid="uid://dqp3b76mc0u0f" path="res://demo tileset.png" id="1_msca3"]
-[ext_resource type="PackedScene" uid="uid://cf64g4wetn83f" path="res://playerChar.tscn" id="3_bgrg5"]
+[ext_resource type="PackedScene" uid="uid://dhkmvxivl7x33" path="res://playerChar.tscn" id="3_bgrg5"]
 [ext_resource type="Texture2D" uid="uid://2aonjywb4uqn" path="res://FloorTile.png" id="3_mgiwk"]
 [ext_resource type="Texture2D" uid="uid://cneh2dem74g13" path="res://WallTile.png" id="4_w2cf1"]
 [ext_resource type="Texture2D" uid="uid://cgj1aq4sk2tkp" path="res://tiles/Block_B_02.png" id="5_blccd"]
@@ -10,7 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://cwwnqoyda5cpv" path="res://pause_menu.tscn" id="6_m6qbc"]
 [ext_resource type="Texture2D" uid="uid://d3xgyeburynjl" path="res://Set Decor/Balloon Cart.png" id="8_l8mbi"]
 [ext_resource type="Texture2D" uid="uid://cljaqyy0cvmxq" path="res://Set Decor/Icecream Cart.png" id="9_14vca"]
+[ext_resource type="PackedScene" uid="uid://ba2wmcug8o71c" path="res://Entry_menu.tscn" id="9_cbrru"]
 [ext_resource type="Texture2D" uid="uid://cstw5cr0d87x" path="res://Set Decor/Tree 1.png" id="10_j5w85"]
+[ext_resource type="Script" path="res://Entry_Menu.gd" id="10_schl0"]
 [ext_resource type="Texture2D" uid="uid://cdeem8kj7sro5" path="res://Set Decor/Tree 2.png" id="11_xdupc"]
 [ext_resource type="Texture2D" uid="uid://c2hefl3350gfk" path="res://Set Decor/Tree 3.png" id="12_367qy"]
 [ext_resource type="Texture2D" uid="uid://yfw2ueou3epf" path="res://Set Decor/BunnyFountain.png" id="14_if6hy"]
@@ -168,8 +170,12 @@ position = Vector2(-54, 973)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("6_m6qbc")]
+visible = false
 size_flags_horizontal = 0
 size_flags_vertical = 4
+
+[node name="EntryMenu" parent="CanvasLayer" instance=ExtResource("9_cbrru")]
+script = ExtResource("10_schl0")
 
 [node name="Trees" type="CanvasGroup" parent="."]
 y_sort_enabled = true
