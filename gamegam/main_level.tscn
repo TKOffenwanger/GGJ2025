@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://6x1us73bdc73"]
+[gd_scene load_steps=21 format=4 uid="uid://6x1us73bdc73"]
 
 [ext_resource type="Script" path="res://World.gd" id="1_fclhu"]
 [ext_resource type="Texture2D" uid="uid://dqp3b76mc0u0f" path="res://demo tileset.png" id="1_msca3"]
@@ -7,6 +7,11 @@
 [ext_resource type="Texture2D" uid="uid://cneh2dem74g13" path="res://WallTile.png" id="4_w2cf1"]
 [ext_resource type="Texture2D" uid="uid://cgj1aq4sk2tkp" path="res://tiles/Block_B_02.png" id="5_blccd"]
 [ext_resource type="PackedScene" uid="uid://cwwnqoyda5cpv" path="res://pause_menu.tscn" id="6_m6qbc"]
+[ext_resource type="Texture2D" uid="uid://d3xgyeburynjl" path="res://Set Decor/Balloon Cart.png" id="8_l8mbi"]
+[ext_resource type="Texture2D" uid="uid://cljaqyy0cvmxq" path="res://Set Decor/Icecream Cart.png" id="9_14vca"]
+[ext_resource type="Texture2D" uid="uid://cstw5cr0d87x" path="res://Set Decor/Tree 1.png" id="10_j5w85"]
+[ext_resource type="Texture2D" uid="uid://cdeem8kj7sro5" path="res://Set Decor/Tree 2.png" id="11_xdupc"]
+[ext_resource type="Texture2D" uid="uid://c2hefl3350gfk" path="res://Set Decor/Tree 3.png" id="12_367qy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xkspx"]
 texture = ExtResource("1_msca3")
@@ -105,12 +110,15 @@ sources/47 = SubResource("TileSetAtlasSource_c84ps")
 sources/48 = SubResource("TileSetAtlasSource_fw04w")
 tile_proxies/coords_level = [[0, Vector2i(0, 0)], [22, Vector2i(0, 0)], [2, Vector2i(0, 0)], [22, Vector2i(1, 0)], [3, Vector2i(0, 0)], [22, Vector2i(2, 0)], [4, Vector2i(0, 0)], [22, Vector2i(3, 0)], [5, Vector2i(0, 0)], [22, Vector2i(0, 1)], [6, Vector2i(0, 0)], [22, Vector2i(1, 1)], [7, Vector2i(0, 0)], [22, Vector2i(2, 1)], [8, Vector2i(0, 0)], [22, Vector2i(3, 1)], [9, Vector2i(0, 0)], [22, Vector2i(0, 2)], [10, Vector2i(0, 0)], [22, Vector2i(1, 2)], [11, Vector2i(0, 0)], [22, Vector2i(2, 2)], [13, Vector2i(0, 0)], [22, Vector2i(3, 2)], [14, Vector2i(0, 0)], [22, Vector2i(0, 3)], [15, Vector2i(0, 0)], [22, Vector2i(1, 3)], [16, Vector2i(0, 0)], [22, Vector2i(2, 3)], [17, Vector2i(0, 0)], [22, Vector2i(3, 3)], [18, Vector2i(0, 0)], [22, Vector2i(0, 4)], [19, Vector2i(0, 0)], [22, Vector2i(1, 4)], [20, Vector2i(0, 0)], [22, Vector2i(2, 4)], [21, Vector2i(0, 0)], [22, Vector2i(3, 4)], [22, Vector2i(0, 0)], [36, Vector2i(6, 0)], [23, Vector2i(0, 0)], [26, Vector2i(0, 0)], [24, Vector2i(0, 0)], [26, Vector2i(1, 0)], [25, Vector2i(0, 0)], [26, Vector2i(2, 0)], [26, Vector2i(0, 0)], [36, Vector2i(10, 0)], [27, Vector2i(0, 0)], [47, Vector2i(0, 0)], [28, Vector2i(0, 0)], [47, Vector2i(1, 0)], [29, Vector2i(0, 0)], [47, Vector2i(2, 0)], [30, Vector2i(0, 0)], [47, Vector2i(3, 0)], [31, Vector2i(0, 0)], [47, Vector2i(0, 1)], [32, Vector2i(0, 0)], [47, Vector2i(1, 1)], [33, Vector2i(0, 0)], [47, Vector2i(2, 1)], [34, Vector2i(0, 0)], [47, Vector2i(3, 1)], [35, Vector2i(0, 0)], [47, Vector2i(0, 2)], [36, Vector2i(0, 0)], [47, Vector2i(1, 2)], [37, Vector2i(0, 0)], [47, Vector2i(2, 2)], [38, Vector2i(0, 0)], [47, Vector2i(3, 2)], [39, Vector2i(0, 0)], [47, Vector2i(0, 3)], [40, Vector2i(0, 0)], [47, Vector2i(1, 3)], [41, Vector2i(0, 0)], [47, Vector2i(2, 3)], [42, Vector2i(0, 0)], [47, Vector2i(3, 3)], [43, Vector2i(0, 0)], [47, Vector2i(0, 4)], [44, Vector2i(0, 0)], [47, Vector2i(1, 4)], [45, Vector2i(0, 0)], [47, Vector2i(2, 4)], [46, Vector2i(0, 0)], [47, Vector2i(3, 4)]]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q68ry"]
+size = Vector2(22.3494, 27.5573)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x8vom"]
+size = Vector2(24.2578, 14.521)
+
 [node name="MainLevel" type="Node2D"]
 position = Vector2(576, 324)
 script = ExtResource("1_fclhu")
-
-[node name="Timer" type="Timer" parent="."]
-autostart = true
 
 [node name="BottomMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(-576, -324)
@@ -130,3 +138,69 @@ position = Vector2(-7, 354)
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("6_m6qbc")]
 size_flags_horizontal = 0
 size_flags_vertical = 4
+
+[node name="BetweenSpawns" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="BetweenWaves" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="BalloonCart" type="Sprite2D" parent="."]
+position = Vector2(-435, 830)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("8_l8mbi")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="BalloonCart"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BalloonCart/StaticBody2D"]
+position = Vector2(10.0001, 345)
+scale = Vector2(16.6, 7.6)
+shape = SubResource("RectangleShape2D_q68ry")
+
+[node name="IceCreamCart" type="Sprite2D" parent="."]
+position = Vector2(-173, 876)
+scale = Vector2(0.467279, 0.467279)
+texture = ExtResource("9_14vca")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="IceCreamCart"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="IceCreamCart/StaticBody2D"]
+position = Vector2(-6.42017, 184.044)
+scale = Vector2(23.1058, 7.85681)
+shape = SubResource("RectangleShape2D_q68ry")
+
+[node name="TreeType1" type="Sprite2D" parent="."]
+position = Vector2(-649, 2239)
+texture = ExtResource("10_j5w85")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="TreeType1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TreeType1/StaticBody2D"]
+position = Vector2(2.90002, 238.5)
+scale = Vector2(5.12, 6.68)
+shape = SubResource("RectangleShape2D_x8vom")
+
+[node name="TreeType2" type="Sprite2D" parent="."]
+position = Vector2(-643, 3717)
+texture = ExtResource("11_xdupc")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="TreeType2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TreeType2/StaticBody2D"]
+position = Vector2(2.90002, 238.5)
+scale = Vector2(5.12, 6.68)
+shape = SubResource("RectangleShape2D_x8vom")
+
+[node name="TreeType3" type="Sprite2D" parent="."]
+position = Vector2(-644, 2901)
+texture = ExtResource("12_367qy")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="TreeType3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TreeType3/StaticBody2D"]
+position = Vector2(2.90002, 238.5)
+scale = Vector2(5.12, 6.68)
+shape = SubResource("RectangleShape2D_x8vom")
+
+[connection signal="timeout" from="BetweenSpawns" to="." method="_on_between_spawns_timeout"]

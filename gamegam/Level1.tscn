@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://World.gd" id="1_66dws"]
 [ext_resource type="Texture2D" uid="uid://dd8vkwug2iwde" path="res://doobie.png" id="1_u8887"]
-[ext_resource type="PackedScene" uid="uid://dhkmvxivl7x33" path="res://playerChar.tscn" id="3_xq3k1"]
+[ext_resource type="PackedScene" path="res://playerChar.tscn" id="3_xq3k1"]
 [ext_resource type="Texture2D" uid="uid://dqp3b76mc0u0f" path="res://demo tileset.png" id="5_d1p4h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pslg4"]
