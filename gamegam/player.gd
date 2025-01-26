@@ -6,6 +6,8 @@ signal player_died
 @onready var grab_bubble = $GrabBubble
 @onready var _playerAnimator : AnimationPlayer = $AnimationPlayer
 @onready var _personal_bubble : Area2D = $PersonalBubble
+@onready var _wahwah : AudioStreamPlayer = $Wahwah
+@onready var _brain_blast : AudioStreamPlayer = $BrainBlast
 
 @export var psychic_throw_force : float = 1.0
 @export var speed : float = 400.0
@@ -28,6 +30,9 @@ var _flip_h : bool = false:
 
 func _input(event):
 	if event.is_action_released("grab"):
+		_wahwah.stop()
+		_brain_blast.pitch_scale = randf_range(0.9, 1.1)
+		_brain_blast.play()
 		for nerd in _grabbed_fools:
 			if is_instance_valid(nerd):
 				nerd.get_ungrab(psychic_throw_force)
@@ -49,6 +54,7 @@ func _physics_process(delta: float) -> void:
 		var mouse_direction = (get_global_mouse_position() - global_position).normalized()
 		grab_bubble.position = mouse_direction*bubble_radius*210 #Hardcoded pixel radius of current circle
 		grab_bubble.scale = bubble_radius * Vector2.ONE
+		_wahwah.play()
 		var grabbable_fools = grab_bubble.get_overlapping_bodies()
 		for grabbable in grabbable_fools:
 			if not grabbable.has_method("get_grabbed"):
