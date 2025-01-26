@@ -15,11 +15,19 @@ extends CharacterBody2D
 
 var _grabbed_fools : Array = []
 var _move_dir : Vector2 = Vector2.ZERO
+var _flip_h : bool = false:
+	set(value):
+		if (_flip_h != value): 
+			$Polygons.scale.x *= -1
+			$Skeleton2D.scale.x *= -1
+		_flip_h = value
 
 func _input(event):
 	if event.is_action_released("grab"):
 		for nerd in _grabbed_fools:
-			nerd.get_ungrab(psychic_throw_force)
+			if is_instance_valid(nerd):
+				nerd.get_ungrab(psychic_throw_force)
+			_grabbed_fools.erase(nerd)
 
 func _physics_process(delta: float) -> void:
 #	DEBUG bubble expand contract
@@ -51,6 +59,7 @@ func _physics_process(delta: float) -> void:
 		# Get where we goin
 		_move_dir = Vector2(Input.get_axis("move_left", "move_right"), Input.get_axis("move_up", "move_down"))
 		
+		
 		if _move_dir != Vector2.ZERO and velocity.length() < 1: # If we wanna move, and we still:
 			velocity = _move_dir * speed #Bolt
 		elif _move_dir != Vector2.ZERO and _move_dir.dot(velocity) > -0.5: # if we wanna move and we moving that way
@@ -62,10 +71,10 @@ func _physics_process(delta: float) -> void:
 	move_and_slide() #DO THE HUSTLE (Actually do the movement)
 
 func _play_animation():
-	pass
 	if Input.is_action_pressed("grab"): #attack
 		_playerAnimator.play("Attack")
 	elif velocity.length() > 0: #Walk
 		_playerAnimator.play("Walk-loop")
+		_flip_h = _move_dir.x < 0 #flip sprites if heading left
 	else: #Idle
 		_playerAnimator.play("Idle-loop")
