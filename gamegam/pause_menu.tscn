@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cwwnqoyda5cpv"]
+[gd_scene load_steps=10 format=3 uid="uid://cwwnqoyda5cpv"]
 
 [ext_resource type="Shader" path="res://pause_menu.gdshader" id="1_7npjw"]
 [ext_resource type="Script" path="res://pause_menu.gd" id="1_ra6pd"]
@@ -7,6 +7,11 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_j0525"]
 shader = ExtResource("1_7npjw")
 shader_parameter/lod = 0.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_dxfcu"]
+font_size = 36
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_csoqv"]
 
@@ -247,15 +252,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -53.0
-offset_top = -261.0
-offset_right = 53.0
-offset_bottom = -98.0
+offset_left = -119.0
+offset_top = -291.0
+offset_right = 119.0
+offset_bottom = -128.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 1
 text = "Game Paused"
+label_settings = SubResource("LabelSettings_dxfcu")
 horizontal_alignment = 1
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
