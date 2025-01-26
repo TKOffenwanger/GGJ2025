@@ -37,15 +37,13 @@ func _input(event):
 		for nerd in _grabbed_fools:
 			if is_instance_valid(nerd):
 				nerd.get_ungrab(psychic_throw_force)
-				_wahwah.stop()
 				_brain_blast.pitch_scale = randf_range(0.9, 1.1)
 				_brain_blast.play()
-			_grabbed_fools.erase(nerd)
+		_grabbed_fools.clear()
+		_wahwah.stop()
 
 func _physics_process(delta: float) -> void:
-#	DEBUG bubble expand contract
-	bubble_radius += Input.get_axis("ShrinkBubble","ExpandBubble") * delta
-	
+#	
 	#Bubble physics
 	if _personal_bubble.has_overlapping_bodies():
 		var num_enemies = _personal_bubble.get_overlapping_bodies().size()
@@ -56,6 +54,7 @@ func _physics_process(delta: float) -> void:
 	# Grab bubble
 	if Input.is_action_pressed("grab"):
 		_grab_bubble_graphic.visible = true
+		_wahwah.play()
 		var mouse_direction = (get_global_mouse_position() - global_position).normalized()
 		grab_bubble.position = mouse_direction*bubble_radius*210 #Hardcoded pixel radius of current circle
 		grab_bubble.scale = bubble_radius * Vector2.ONE
@@ -64,7 +63,6 @@ func _physics_process(delta: float) -> void:
 			if not grabbable.has_method("get_grabbed"):
 				print("BROKEN grabbable ", grabbable)
 				continue
-			_wahwah.play()
 			is_attacking = true
 			grabbable.get_grabbed(grab_bubble)
 			_grabbed_fools.append(grabbable)
