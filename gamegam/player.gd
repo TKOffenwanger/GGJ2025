@@ -85,11 +85,11 @@ func _play_animation():
 		_playerAnimator.play("Attack")
 	elif velocity.length() > 0: #Walk
 		_playerAnimator.play("Walk-loop")
-		_flip_h = _move_dir.x < 0 #flip sprites if heading left
+		if _move_dir.x != 0:
+			_flip_h = _move_dir.x < 0 #flip sprites if heading left
 	else: #Idle
 		_playerAnimator.play("Idle-loop")
 
 func _player_die():
-	print("Heckin died ", bubble_radius)
 	player_died.emit()
 	
