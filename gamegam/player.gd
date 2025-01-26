@@ -10,7 +10,7 @@ extends CharacterBody2D
 @export var skid_time : float  = 1.0
 @export var bubble_radius : float  = 1.0:
 	set(value):
-		bubble_radius = max(0.2, value)
+		bubble_radius = clamp(value, 0.2, 3.0)
 		_personal_bubble.scale = Vector2.ONE*bubble_radius
 
 var _grabbed_fools : Array = []
