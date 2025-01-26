@@ -1,6 +1,8 @@
 extends RigidBody2D
 
 @onready var player_node : CharacterBody2D = get_tree().get_first_node_in_group("Player")
+@onready var _confetti_scene = preload("res://resources/confetti_explosion.tscn")
+
 
 @export var speed : float = 200
 
@@ -49,6 +51,9 @@ func _on_body_entered(body):
 		return
 	if _rag_dolled and _how_fast_I_was_just_going > 5000.0:
 		just_died.emit()
+		var confetti = _confetti_scene.instantiate()
+		get_tree().get_root().add_child(confetti)
+		confetti.global_position = global_position
 		queue_free()
 	else:
 		_rag_dolled = true
