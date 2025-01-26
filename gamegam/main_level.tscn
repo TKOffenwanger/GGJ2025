@@ -17,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://c2hefl3350gfk" path="res://Set Decor/Tree 3.png" id="12_367qy"]
 [ext_resource type="Texture2D" uid="uid://yfw2ueou3epf" path="res://Set Decor/BunnyFountain.png" id="14_if6hy"]
 [ext_resource type="Texture2D" uid="uid://clc2fj8tuf51c" path="res://Set Decor/lampost.png" id="15_y8n4a"]
-[ext_resource type="PackedScene" path="res://scene_transition_animation.tscn" id="16_or33g"]
+[ext_resource type="PackedScene" uid="uid://s4niisvak75c" path="res://scene_transition_animation.tscn" id="16_or33g"]
 [ext_resource type="AudioStream" uid="uid://c2724bif0g2eq" path="res://audio/Level Music.mp3" id="19_x3gl0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xkspx"]
@@ -893,6 +893,7 @@ position = Vector2(-2436, -714)
 stream = ExtResource("19_x3gl0")
 volume_db = -15.0
 autoplay = true
+parameters/looping = true
 
 [connection signal="timeout" from="BetweenSpawns" to="." method="_on_between_spawns_timeout"]
 [connection signal="timeout" from="BetweenWaves" to="." method="_on_between_waves_timeout"]
