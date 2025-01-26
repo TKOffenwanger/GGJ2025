@@ -45,7 +45,6 @@ sources/2 = SubResource("TileSetAtlasSource_jsqvo")
 [node name="MainLevel" type="Node2D"]
 position = Vector2(576, 324)
 script = ExtResource("1_fclhu")
-timer_enabled = false
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true

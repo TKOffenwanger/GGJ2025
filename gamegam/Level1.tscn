@@ -1,16 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://dw3lohqmwistr"]
+[gd_scene load_steps=6 format=3 uid="uid://dw3lohqmwistr"]
 
 [ext_resource type="Script" path="res://World.gd" id="1_66dws"]
 [ext_resource type="Texture2D" uid="uid://dd8vkwug2iwde" path="res://doobie.png" id="1_u8887"]
 [ext_resource type="PackedScene" uid="uid://dhkmvxivl7x33" path="res://playerChar.tscn" id="3_xq3k1"]
-[ext_resource type="PackedScene" uid="uid://cdr41qlx3q5pe" path="res://resources/enemy.tscn" id="5_gfjwj"]
+[ext_resource type="Texture2D" uid="uid://dqp3b76mc0u0f" path="res://demo tileset.png" id="5_d1p4h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pslg4"]
+size = Vector2(765, 383)
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_66dws")
-enemy_spawn_time = 4.0
 
-[node name="Timer" type="Timer" parent="."]
-autostart = true
+[node name="BetweenSpawns" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="BetweenWaves" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
 
 [node name="Doobie" type="Sprite2D" parent="."]
 position = Vector2(850, -149)
@@ -18,6 +24,51 @@ texture = ExtResource("1_u8887")
 
 [node name="Player" parent="." instance=ExtResource("3_xq3k1")]
 
-[node name="Enemy" parent="." instance=ExtResource("5_gfjwj")]
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-146, 5295)
+scale = Vector2(10.68, 1)
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[node name="DemoTileset" type="Sprite2D" parent="StaticBody2D"]
+texture = ExtResource("5_d1p4h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0.5, 1.5)
+shape = SubResource("RectangleShape2D_pslg4")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(-332, -2901)
+scale = Vector2(10.68, 1)
+
+[node name="DemoTileset" type="Sprite2D" parent="StaticBody2D2"]
+texture = ExtResource("5_d1p4h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(0.5, 1.5)
+shape = SubResource("RectangleShape2D_pslg4")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(3873, 916)
+rotation = 1.5317
+scale = Vector2(10.68, 1)
+
+[node name="DemoTileset" type="Sprite2D" parent="StaticBody2D3"]
+texture = ExtResource("5_d1p4h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(0.5, 1.5)
+shape = SubResource("RectangleShape2D_pslg4")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+position = Vector2(-4290, 1258)
+rotation = 1.5317
+scale = Vector2(10.68, 1)
+
+[node name="DemoTileset" type="Sprite2D" parent="StaticBody2D4"]
+texture = ExtResource("5_d1p4h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+position = Vector2(0.5, 1.5)
+shape = SubResource("RectangleShape2D_pslg4")
+
+[connection signal="timeout" from="BetweenSpawns" to="." method="_on_between_spawns_timeout"]
+[connection signal="timeout" from="BetweenWaves" to="." method="_on_between_waves_timeout"]
