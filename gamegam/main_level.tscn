@@ -1,8 +1,8 @@
-[gd_scene load_steps=25 format=4 uid="uid://6x1us73bdc73"]
+[gd_scene load_steps=25 format=4 uid="uid://dsp4r6j68sas6"]
 
 [ext_resource type="Script" path="res://World.gd" id="1_fclhu"]
 [ext_resource type="Texture2D" uid="uid://dqp3b76mc0u0f" path="res://demo tileset.png" id="1_msca3"]
-[ext_resource type="PackedScene" uid="uid://cf64g4wetn83f" path="res://playerChar.tscn" id="3_bgrg5"]
+[ext_resource type="PackedScene" uid="uid://dhkmvxivl7x33" path="res://playerChar.tscn" id="3_bgrg5"]
 [ext_resource type="Texture2D" uid="uid://2aonjywb4uqn" path="res://FloorTile.png" id="3_mgiwk"]
 [ext_resource type="Texture2D" uid="uid://cneh2dem74g13" path="res://WallTile.png" id="4_w2cf1"]
 [ext_resource type="Texture2D" uid="uid://cgj1aq4sk2tkp" path="res://tiles/Block_B_02.png" id="5_blccd"]
