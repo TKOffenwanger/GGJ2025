@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://b1j8c74rf5dyy"]
+[gd_scene load_steps=3 format=3 uid="uid://dpy8kjmhoi1xi"]
 
 [ext_resource type="PackedScene" uid="uid://cdr41qlx3q5pe" path="res://resources/enemy.tscn" id="1_iucli"]
 [ext_resource type="Texture2D" uid="uid://chwi204cpocun" path="res://Enemy Variants/DogDadEnemy.png" id="2_ntmbn"]
@@ -19,6 +19,8 @@ texture = ExtResource("2_ntmbn")
 
 [node name="Head_Enemy" parent="Sprites" index="4"]
 texture = ExtResource("2_ntmbn")
+polygon = PackedVector2Array(146.728, 244.187, 65.333, 284.884, 95.178, 537.21, 8.3562, 651.163, 59.9066, 868.217, 293.24, 976.745, 645.953, 1101.55, 917.271, 1096.12, 1088.2, 756.977, 1259.13, 526.357, 1302.54, 331.008, 1039.36, 241.473, 732.775, 0.000457764, 491.302, 2.71364, 244.403, 35.2718)
+uv = PackedVector2Array(146.728, 244.187, 65.333, 284.884, 95.178, 537.21, 8.3562, 651.163, 59.9066, 868.217, 293.24, 976.745, 645.953, 1101.55, 857.581, 1109.69, 1099.05, 803.101, 1259.13, 526.357, 1302.54, 331.008, 1039.36, 241.473, 732.775, 0.000457764, 491.302, 2.71364, 241.69, 70.5431)
 
 [node name="FrontArm_Enemy" parent="Sprites" index="5"]
 texture = ExtResource("2_ntmbn")

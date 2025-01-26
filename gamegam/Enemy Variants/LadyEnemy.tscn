@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://bbv62m7i73hb"]
 
-[ext_resource type="Texture2D" uid="uid://djntsycbv6u8a" path="res://Woman.png" id="1_f16tk"]
+[ext_resource type="Texture2D" uid="uid://c7ruexoycl77l" path="res://Enemy Variants/Woman.png" id="1_f16tk"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_7tf2m"]
 a = Vector2(90, -230)
@@ -762,7 +762,6 @@ bone_angle = 0.0
 [node name="Tail" type="Bone2D" parent="Skeleton2D/Torso"]
 position = Vector2(3.4, -12.6333)
 rotation = -1.27176
-scale = Vector2(1, 1)
 rest = Transform2D(0.0343963, -0.999408, 0.999408, 0.0343963, 3.4, -12.6333)
 auto_calculate_length_and_angle = false
 length = 5.0
