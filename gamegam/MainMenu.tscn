@@ -123,7 +123,6 @@ texture = ExtResource("7_k4c3e")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_q2qcf")
 autoplay = true
-bus = &"Music"
 parameters/looping = false
 
 [node name="TextureButton" type="TextureButton" parent="."]

@@ -14,7 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://bpiy361k7hjm4" path="res://audio/space shield sounds - 1.ogg" id="11_wrpcr"]
 [ext_resource type="AudioStream" uid="uid://bddwrhwoaa5o2" path="res://audio/flaunch.wav" id="12_6wh7o"]
 [ext_resource type="Texture2D" uid="uid://d3wxnmvyq6u2b" path="res://Bunny Parts/FrontArmAttack.png" id="12_mwi2i"]
-[ext_resource type="Animation" uid="uid://c7v5grmir2cly" path="res://Attack.res" id="13_yoosc"]
+[ext_resource type="Animation" path="res://Attack.res" id="13_yoosc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_am8bo"]
 radius = 215.523
@@ -1314,7 +1314,7 @@ scale = Vector2(0.3, 0.3)
 texture = ExtResource("3_hqwys")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(0.4, 0.4)
+zoom = Vector2(0.6, 0.6)
 position_smoothing_enabled = true
 
 [node name="GrabBubble" type="Area2D" parent="."]
@@ -1350,7 +1350,6 @@ bones = ["Torso", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 [node name="BackArmAttack" type="Polygon2D" parent="Polygons"]
 visible = false
 position = Vector2(-30, -530)
-scale = Vector2(1, 1)
 texture = ExtResource("6_y7e0a")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(113.24, 172.33, 376.56, 338.237, 429.832, 243.868, 531.812, 53.608, 785.999, 7.94569, 939.729, 172.33, 865.147, 434.128, 712.939, 660.917, 429.832, 621.343, 163.469, 517.842, 35.6142, 336.715)
@@ -1449,7 +1448,6 @@ rest = Transform2D(-0.94028, 0.340402, -0.340402, -0.94028, 15.3667, 2.63333)
 [node name="FrontArm" type="Bone2D" parent="Skeleton2D/Torso"]
 position = Vector2(15.6667, -4.53333)
 rotation = -2.75542
-scale = Vector2(1, 1)
 rest = Transform2D(-0.926357, -0.376647, 0.376647, -0.926357, 15.6667, -4.53333)
 
 [node name="BackLeg" type="Bone2D" parent="Skeleton2D/Torso"]
@@ -1463,7 +1461,6 @@ bone_angle = 0.0
 [node name="FrontLeg" type="Bone2D" parent="Skeleton2D/Torso"]
 position = Vector2(-2.7, -5.6)
 rotation = 3.08955
-scale = Vector2(1, 1)
 rest = Transform2D(-0.998646, 0.0520149, -0.0520149, -0.998646, -2.7, -5.6)
 auto_calculate_length_and_angle = false
 length = 13.0
@@ -1472,7 +1469,6 @@ bone_angle = 0.0
 [node name="Tail" type="Bone2D" parent="Skeleton2D/Torso"]
 position = Vector2(3.4, -12.6333)
 rotation = -1.53639
-scale = Vector2(1, 1)
 rest = Transform2D(0.0343963, -0.999408, 0.999408, 0.0343963, 3.4, -12.6333)
 auto_calculate_length_and_angle = false
 length = 5.0
