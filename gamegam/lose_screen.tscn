@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dpcdxb8i7j4ee"]
 
-[ext_resource type="Script" path="res://lose_screen.gd" id="1_ox5eg"]
+[ext_resource type="Script" uid="uid://qq7efnrba1w1" path="res://lose_screen.gd" id="1_ox5eg"]
 [ext_resource type="Texture2D" uid="uid://covneecuiemls" path="res://Death Screen.png" id="2_smigu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h57pi"]
