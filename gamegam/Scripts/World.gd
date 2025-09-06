@@ -20,9 +20,6 @@ extends Node2D
 
 var _enemies_spawns_left : int = 0
 var _enemies_left_alive : int = 0
-var _avg_cam_distance:
-	get:
-		return (get_viewport_rect().size.x + get_viewport_rect().size.y) / 2
 
 func _ready():
 	# Start first wave

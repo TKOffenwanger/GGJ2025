@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://ba2wmcug8o71c"]
 
-[ext_resource type="Script" uid="uid://b6n4ds5pia0rr" path="res://Scripts/pause_menu.gd" id="1_wy1fn"]
+[ext_resource type="Script" uid="uid://c4c4wx3xtelr6" path="res://Scripts/Entry_Menu.gd" id="1_4c7ie"]
 [ext_resource type="Shader" uid="uid://c6udbhkav615n" path="res://Shaders/pause_menu.gdshader" id="2_x20qc"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_j0525"]
@@ -225,7 +225,7 @@ _data = {
 &"blur": SubResource("Animation_vukky")
 }
 
-[node name="PauseMenu" type="Control"]
+[node name="EntryMenu" type="Control"]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -233,7 +233,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_wy1fn")
+script = ExtResource("1_4c7ie")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_j0525")

@@ -5,6 +5,7 @@ extends Control
 func _ready() -> void:
 	get_tree().paused = true
 	$AnimationPlayer.play("blur")
+	$PanelContainer/VBoxContainer/Continue.grab_focus()
 	
 func resume():
 	get_tree().paused = false
@@ -13,8 +14,3 @@ func resume():
 	
 func _on_continue_pressed() -> void:
 	resume()
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass

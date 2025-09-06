@@ -22,6 +22,7 @@ signal player_died
 
 var _grabbed_fools : Array = []
 var _move_dir : Vector2 = Vector2.ZERO
+var _look_dir : Vector2 = Vector2.ZERO
 var _flip_h : bool = false:
 	set(value):
 		if (_flip_h != value): 
@@ -43,7 +44,6 @@ func _input(event):
 		_wahwah.stop()
 
 func _physics_process(delta: float) -> void:
-#	
 	#Bubble physics
 	if _personal_bubble.has_overlapping_bodies():
 		var num_enemies = _personal_bubble.get_overlapping_bodies().size()
@@ -55,9 +55,14 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("grab"):
 		_grab_bubble_graphic.visible = true
 		_wahwah.play()
-		var mouse_direction = (get_global_mouse_position() - global_position).normalized()
-		grab_bubble.position = mouse_direction*bubble_radius*210 #Hardcoded pixel radius of current circle
+		
+		if Input.get_connected_joypads().is_empty():
+			_look_dir = (get_global_mouse_position() - global_position).normalized()
+		else: #We have controller connected
+			_look_dir = Input.get_vector("look_left", "look_right", "look_up", "look_down").normalized()
+		grab_bubble.position = _look_dir*bubble_radius*210 #Hardcoded pixel radius of current circle
 		grab_bubble.scale = bubble_radius * Vector2.ONE
+		
 		var grabbable_fools = grab_bubble.get_overlapping_bodies()
 		for grabbable in grabbable_fools:
 			if not grabbable.has_method("get_grabbed"):
@@ -71,8 +76,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		_grab_bubble_graphic.visible = false
 		# Get where we goin
-		_move_dir = Vector2(Input.get_axis("move_left", "move_right"), Input.get_axis("move_up", "move_down"))
-		
+		_move_dir = Input.get_vector("move_left", "move_right","move_up", "move_down").normalized()
 		
 		if _move_dir != Vector2.ZERO and velocity.length() < 1: # If we wanna move, and we still:
 			velocity = _move_dir * speed #Bolt

@@ -3,12 +3,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
-	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
+	$PanelContainer/VBoxContainer/BackToMainMenu.grab_focus()
 
 func _on_back_to_main_menu_pressed() -> void:
 	get_tree().paused = false

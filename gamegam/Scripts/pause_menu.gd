@@ -1,5 +1,5 @@
 extends Control
-
+@onready var continue_button : Control = $PanelContainer/VBoxContainer/Continue
 func _ready():
 	hide()
 	$AnimationPlayer.play("RESET")
@@ -13,6 +13,7 @@ func pause():
 	get_tree().paused = true
 	$AnimationPlayer.play("blur")
 	show()
+	continue_button.grab_focus()
 	
 func testEsc():
 	if Input.is_action_just_pressed("Esc") and get_tree().paused == false:
@@ -38,5 +39,5 @@ func _on_return_to_title_pressed() -> void:
 func _on_quit_game_pressed() -> void:
 	get_tree().quit()
 
-func _process(delta):
+func _process(_delta):
 	testEsc()

@@ -303,7 +303,7 @@ text = "Quit Game"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_agbei")
+&"": SubResource("AnimationLibrary_agbei")
 }
 
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Continue" to="." method="_on_continue_pressed"]

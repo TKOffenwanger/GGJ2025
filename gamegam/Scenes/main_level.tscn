@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://dsp4r6j68sas6"]
+[gd_scene load_steps=29 format=4 uid="uid://dsp4r6j68sas6"]
 
 [ext_resource type="Script" uid="uid://cijj3bpo1e82v" path="res://Scripts/World.gd" id="1_fclhu"]
 [ext_resource type="Texture2D" uid="uid://dqp3b76mc0u0f" path="res://Graphics/demo tileset.png" id="1_msca3"]
@@ -12,7 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://cljaqyy0cvmxq" path="res://Graphics/Set Decor/Icecream Cart.png" id="9_14vca"]
 [ext_resource type="PackedScene" uid="uid://ba2wmcug8o71c" path="res://Scenes/Entry_menu.tscn" id="9_skhkm"]
 [ext_resource type="Texture2D" uid="uid://cstw5cr0d87x" path="res://Graphics/Set Decor/Tree 1.png" id="10_j5w85"]
-[ext_resource type="Script" uid="uid://c4c4wx3xtelr6" path="res://Scripts/Entry_Menu.gd" id="10_sjkex"]
 [ext_resource type="Texture2D" uid="uid://cdeem8kj7sro5" path="res://Graphics/Set Decor/Tree 2.png" id="11_xdupc"]
 [ext_resource type="Texture2D" uid="uid://c2hefl3350gfk" path="res://Graphics/Set Decor/Tree 3.png" id="12_367qy"]
 [ext_resource type="Texture2D" uid="uid://yfw2ueou3epf" path="res://Graphics/Set Decor/BunnyFountain.png" id="14_if6hy"]
@@ -194,7 +193,6 @@ size_flags_horizontal = 0
 size_flags_vertical = 4
 
 [node name="EntryMenu" parent="CanvasLayer" instance=ExtResource("9_skhkm")]
-script = ExtResource("10_sjkex")
 
 [node name="Trees" type="CanvasGroup" parent="." groups=["nav"]]
 y_sort_enabled = true
