@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://d3ysqmkhand4j"]
 
 [ext_resource type="PackedScene" uid="uid://cdr41qlx3q5pe" path="res://resources/enemy.tscn" id="1_2306i"]
-[ext_resource type="Texture2D" uid="uid://bgy3bag62oeqs" path="res://Enemy Variants/enemy.png" id="2_6mmbb"]
+[ext_resource type="Texture2D" uid="uid://bgy3bag62oeqs" path="res://Graphics/Enemy Variants/enemy.png" id="2_6mmbb"]
 
 [node name="Enemy" instance=ExtResource("1_2306i")]
 

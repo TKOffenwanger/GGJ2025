@@ -1,0 +1,151 @@
+[gd_scene load_steps=19 format=3 uid="uid://dg0orr1jpdwb3"]
+
+[ext_resource type="Script" uid="uid://c12xhqge6c00k" path="res://Scripts/main_menu.gd" id="1_thpd7"]
+[ext_resource type="Texture2D" uid="uid://dtbv4itw8hoa2" path="res://Graphics/UI/MENU.png" id="2_bc1b3"]
+[ext_resource type="Texture2D" uid="uid://dtxnr8hymrl00" path="res://Graphics/UI/Menu Holder V2.png" id="3_usslm"]
+[ext_resource type="Texture2D" uid="uid://oo1biqwahlee" path="res://Graphics/UI/Logo v2.png" id="4_h8n5t"]
+[ext_resource type="Texture2D" uid="uid://dwq3ho8b81yh" path="res://Graphics/UI/Start.png" id="5_h5n1l"]
+[ext_resource type="Texture2D" uid="uid://beus0cmhxohca" path="res://Graphics/UI/Exit.png" id="6_xasf7"]
+[ext_resource type="AudioStream" uid="uid://by3y2g4wwi0g5" path="res://audio/ThemeSong.mp3" id="8_q2qcf"]
+[ext_resource type="Texture2D" uid="uid://bc140gm1kr4gn" path="res://Graphics/UI/SoundOn.png" id="9_1crqv"]
+[ext_resource type="Script" uid="uid://pwc71g8sve6c" path="res://Scripts/stop_music.gd" id="9_ra8vu"]
+[ext_resource type="Texture2D" uid="uid://da6o26py2580c" path="res://Graphics/UI/SoundOff.png" id="10_to4x1"]
+[ext_resource type="PackedScene" uid="uid://s4niisvak75c" path="res://resources/scene_transition_animation.tscn" id="11_qes5t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wlc7q"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f2lwj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b6b3l"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tjggg"]
+bg_color = Color(0.14902, 0.14902, 0.14902, 0)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.14902, 0.14902, 0.14902, 0)
+border_blend = true
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0)
+shadow_size = 5
+shadow_offset = Vector2(3, 3)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ymcbw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j2tlh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ak77r"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -2.0
+offset_right = 1263.0
+offset_bottom = 713.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.477, 0.477)
+script = ExtResource("1_thpd7")
+
+[node name="CanvasGroup" type="CanvasGroup" parent="."]
+
+[node name="Menu" type="Sprite2D" parent="CanvasGroup"]
+position = Vector2(1208.41, 684.486)
+scale = Vector2(1.26757, 1.26757)
+texture = ExtResource("2_bc1b3")
+
+[node name="MenuHolder" type="Sprite2D" parent="CanvasGroup"]
+position = Vector2(385.744, 1096.44)
+scale = Vector2(0.500884, 0.500884)
+texture = ExtResource("3_usslm")
+
+[node name="Logo" type="Sprite2D" parent="CanvasGroup"]
+position = Vector2(425.577, 371.069)
+scale = Vector2(0.712273, 0.712273)
+texture = ExtResource("4_h8n5t")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1101.08
+offset_top = 287.053
+offset_right = -601.082
+offset_bottom = 565.053
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(0, 0.275)
+theme_override_constants/separation = 125
+
+[node name="Start Game" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_color = Color(0.873609, 0.86478, 0.82673, 1)
+theme_override_colors/icon_pressed_color = Color(0.671352, 0.51506, 0.13541, 1)
+theme_override_colors/icon_normal_color = Color(0.968627, 0.862745, 0.423529, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 60
+theme_override_styles/focus = SubResource("StyleBoxEmpty_wlc7q")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_f2lwj")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_b6b3l")
+theme_override_styles/normal = SubResource("StyleBoxFlat_tjggg")
+icon = ExtResource("5_h5n1l")
+icon_alignment = 1
+
+[node name="Exit Game" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_color = Color(0.87451, 0.866667, 0.827451, 1)
+theme_override_colors/icon_pressed_color = Color(0.670588, 0.513726, 0.137255, 1)
+theme_override_colors/icon_normal_color = Color(0.968627, 0.862745, 0.423529, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 60
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ymcbw")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_j2tlh")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ak77r")
+theme_override_styles/normal = SubResource("StyleBoxFlat_tjggg")
+icon = ExtResource("6_xasf7")
+icon_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_q2qcf")
+volume_db = -15.0
+autoplay = true
+bus = &"Music"
+parameters/looping = true
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 299.79
+offset_top = 1283.02
+offset_right = 404.79
+offset_bottom = 1367.02
+scale = Vector2(0.896102, 0.896102)
+toggle_mode = true
+texture_normal = ExtResource("9_1crqv")
+texture_pressed = ExtResource("10_to4x1")
+script = ExtResource("9_ra8vu")
+
+[node name="SceneTransitionAnimation" parent="." instance=ExtResource("11_qes5t")]
+
+[connection signal="pressed" from="VBoxContainer/Start Game" to="." method="_on_start_game_pressed"]
+[connection signal="pressed" from="VBoxContainer/Exit Game" to="." method="_on_exit_game_pressed"]
+[connection signal="pressed" from="TextureButton" to="TextureButton" method="_on_pressed"]

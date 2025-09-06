@@ -1,6 +1,6 @@
 [gd_scene load_steps=34 format=3 uid="uid://bljnquq1y1hwq"]
 
-[ext_resource type="Texture2D" uid="uid://bbcqcry5rp1bh" path="res://Graphic/deathanimation-ezgif.com-gif-to-sprite-converter.png" id="1_qdom1"]
+[ext_resource type="Texture2D" uid="uid://bbcqcry5rp1bh" path="res://Graphics/deathanimation-ezgif.com-gif-to-sprite-converter.png" id="1_qdom1"]
 [ext_resource type="AudioStream" uid="uid://bxy0yx2f3o6k2" path="res://audio/bubble-pop-100784.mp3" id="2_tq0ux"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f8na1"]
