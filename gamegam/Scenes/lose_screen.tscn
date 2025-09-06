@@ -1,0 +1,88 @@
+[gd_scene load_steps=6 format=3 uid="uid://dpcdxb8i7j4ee"]
+
+[ext_resource type="Script" uid="uid://qq7efnrba1w1" path="res://Scripts/lose_screen.gd" id="1_ox5eg"]
+[ext_resource type="Texture2D" uid="uid://covneecuiemls" path="res://Graphics/UI/Death Screen.png" id="2_smigu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h57pi"]
+bg_color = Color(0.0995715, 0.177716, 0.311775, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yfocn"]
+texture = ExtResource("2_smigu")
+
+[sub_resource type="LabelSettings" id="LabelSettings_x3qd3"]
+font_size = 72
+outline_size = 15
+outline_color = Color(0, 0, 0, 1)
+
+[node name="LoseScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ox5eg")
+
+[node name="Panel2" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_h57pi")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_yfocn")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -225.0
+offset_top = -6.0
+offset_right = 188.0
+offset_bottom = 93.0
+grow_horizontal = 2
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_x3qd3")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 367.0
+offset_top = 92.0
+offset_right = 527.0
+offset_bottom = 193.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="Restart" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Restart"
+
+[node name="BackToMainMenu" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Back To Main Menu"
+
+[node name="QuitGame" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Quit Game"
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/BackToMainMenu" to="." method="_on_back_to_main_menu_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/QuitGame" to="." method="_on_quit_game_pressed"]

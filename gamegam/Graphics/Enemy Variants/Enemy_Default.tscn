@@ -1,10 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://cdr41qlx3q5pe"]
+[gd_scene load_steps=8 format=3 uid="uid://bvmmyxkm5ktcu"]
 
-[ext_resource type="Script" uid="uid://d01g7w2xj55cv" path="res://Scripts/enemy.gd" id="1_44l0r"]
-[ext_resource type="Texture2D" uid="uid://d1nslpq2tnjja" path="res://Graphics/Enemy Variants/enemy_Default.png" id="2_rhuj5"]
+[ext_resource type="Texture2D" uid="uid://d1nslpq2tnjja" path="res://Graphics/Enemy Variants/enemy_Default.png" id="7_a01po"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ivgrx"]
-radius = 50.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ris7w"]
+radius = 12.4172
+height = 29.2644
 
 [sub_resource type="Animation" id="Animation_r376j"]
 resource_name = "Attack"
@@ -580,69 +580,59 @@ _data = {
 &"Walk-loop": SubResource("Animation_h5jjg")
 }
 
-[node name="Enemy" type="RigidBody2D" groups=["Enemy", "Grabbable"]]
-collision_layer = 7
-gravity_scale = 0.0
-lock_rotation = true
-freeze = true
-freeze_mode = 1
-continuous_cd = 2
-contact_monitor = true
-max_contacts_reported = 10
-angular_damp = 5.0
-script = ExtResource("1_44l0r")
-speed = 5.0
+[node name="EnemyBody2D" type="CharacterBody2D"]
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_ivgrx")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(76, -192)
+scale = Vector2(51.3, 62.26)
+shape = SubResource("CapsuleShape2D_ris7w")
 
-[node name="Sprites" type="Node2D" parent="."]
-position = Vector2(-52, -110)
-scale = Vector2(0.1, 0.1)
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(-449, -1294)
 
-[node name="BackArm_Enemy" type="Polygon2D" parent="Sprites"]
+[node name="BackArm_Enemy" type="Polygon2D" parent="Node2D"]
 position = Vector2(-683, -286)
-texture = ExtResource("2_rhuj5")
+texture = ExtResource("7_a01po")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(1232, 1180.23, 1199.44, 1326.74, 1335.1, 1847.67, 1234.71, 1929.07, 1291.69, 2037.6, 1663.4, 2097.29, 1720.37, 1929.07, 1701.38, 1703.88, 1476.19, 1410.85, 1310.68, 1155.81)
 uv = PackedVector2Array(1232, 1180.23, 1199.44, 1326.74, 1335.1, 1847.67, 1234.71, 1929.07, 1291.69, 2037.6, 1663.4, 2097.29, 1720.37, 1929.07, 1701.38, 1703.88, 1476.19, 1410.85, 1310.68, 1155.81)
 bones = ["Torso", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Torso/Head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Torso/BackArm", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1), "Torso/FrontArm", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Torso/BackLeg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Torso/FrontLeg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Torso/Tail", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0)]
 
-[node name="BackLeg_Enemy" type="Polygon2D" parent="Sprites"]
+[node name="BackLeg_Enemy" type="Polygon2D" parent="Node2D"]
 position = Vector2(-925, 1350)
-texture = ExtResource("2_rhuj5")
+texture = ExtResource("7_a01po")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(1378.51, 29.8454, 1310.68, 138.373, 1354.09, 575.194, 1503.32, 643.024, 1693.24, 634.884, 1731.22, 553.489, 1657.97, 493.799, 1723.08, 284.884, 1628.12, 16.2795)
 uv = PackedVector2Array(1378.51, 29.8454, 1310.68, 138.373, 1354.09, 575.194, 1503.32, 643.024, 1693.24, 634.884, 1731.22, 553.489, 1657.97, 493.799, 1723.08, 284.884, 1628.12, 16.2795)
 bones = ["Torso", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Torso/Head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Torso/BackArm", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Torso/FrontArm", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Torso/BackLeg", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1), "Torso/FrontLeg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Torso/Tail", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0)]
 
-[node name="Torso_Enemy" type="Polygon2D" parent="Sprites"]
+[node name="Torso_Enemy" type="Polygon2D" parent="Node2D"]
 position = Vector2(111, -353)
-texture = ExtResource("2_rhuj5")
+texture = ExtResource("7_a01po")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(287.814, 1210.08, 81.6121, 1478.68, 24.6354, 1804.26, 111.457, 2007.75, 404.48, 2086.43, 651.38, 2002.33, 651.38, 1787.98, 578.124, 1543.8, 664.945, 1283.33, 532, 1161.24)
 uv = PackedVector2Array(287.814, 1210.08, 81.6121, 1478.68, 24.6354, 1804.26, 111.457, 2007.75, 404.48, 2086.43, 651.38, 2002.33, 651.38, 1787.98, 578.124, 1543.8, 664.945, 1283.33, 532, 1161.24)
 bones = ["Torso", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1), "Torso/Head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Torso/BackArm", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Torso/FrontArm", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Torso/BackLeg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Torso/FrontLeg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Torso/Tail", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0)]
 
-[node name="FrontLeg_Enemy" type="Polygon2D" parent="Sprites"]
+[node name="FrontLeg_Enemy" type="Polygon2D" parent="Node2D"]
 position = Vector2(-1167, 784)
-texture = ExtResource("2_rhuj5")
+texture = ExtResource("7_a01po")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(1516.88, 648.45, 1332.39, 718.993, 1351.38, 1153.1, 1516.88, 1237.21, 1728.51, 1220.93, 1663.4, 1074.42, 1736.65, 824.807)
 uv = PackedVector2Array(1516.88, 648.45, 1332.39, 718.993, 1351.38, 1153.1, 1516.88, 1237.21, 1728.51, 1220.93, 1663.4, 1074.42, 1736.65, 824.807)
 bones = ["Torso", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Torso/Head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Torso/BackArm", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Torso/FrontArm", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Torso/BackLeg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Torso/FrontLeg", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1), "Torso/Tail", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0)]
 
-[node name="Head_Enemy" type="Polygon2D" parent="Sprites"]
+[node name="Head_Enemy" type="Polygon2D" parent="Node2D"]
 position = Vector2(18, -29)
-texture = ExtResource("2_rhuj5")
+texture = ExtResource("7_a01po")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(146.728, 244.187, 65.333, 284.884, 95.178, 537.21, 8.3562, 651.163, 59.9066, 868.217, 293.24, 976.745, 645.953, 1101.55, 876.573, 1014.73, 1006.81, 613.179, 1259.13, 526.357, 1302.54, 331.008, 1039.36, 241.473, 732.775, 0.000457764, 491.302, 2.71364, 304.093, 179.07)
 uv = PackedVector2Array(146.728, 244.187, 65.333, 284.884, 95.178, 537.21, 8.3562, 651.163, 59.9066, 868.217, 293.24, 976.745, 645.953, 1101.55, 876.573, 1014.73, 1006.81, 613.179, 1259.13, 526.357, 1302.54, 331.008, 1039.36, 241.473, 732.775, 0.000457764, 491.302, 2.71364, 304.093, 179.07)
 bones = ["Torso", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Torso/Head", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1), "Torso/BackArm", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Torso/FrontArm", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Torso/BackLeg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Torso/FrontLeg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Torso/Tail", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)]
 
-[node name="FrontArm_Enemy" type="Polygon2D" parent="Sprites"]
+[node name="FrontArm_Enemy" type="Polygon2D" parent="Node2D"]
 position = Vector2(-619, -232)
-texture = ExtResource("2_rhuj5")
+texture = ExtResource("7_a01po")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(987.813, 1139.54, 822.31, 1258.92, 670.372, 1665.89, 681.224, 1969.77, 863.007, 2075.58, 1109.91, 2105.43, 1093.63, 1967.05, 1153.32, 1815.12, 1047.5, 1646.9, 1088.2, 1400, 1115.33, 1245.35)
 uv = PackedVector2Array(987.813, 1139.54, 822.31, 1258.92, 670.372, 1665.89, 681.224, 1969.77, 863.007, 2075.58, 1109.91, 2105.43, 1093.63, 1967.05, 1153.32, 1815.12, 1047.5, 1646.9, 1088.2, 1400, 1115.33, 1245.35)
@@ -650,7 +640,6 @@ bones = ["Torso", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Torso/He
 
 [node name="Skeleton2D" type="Skeleton2D" parent="."]
 rotation = 0.110699
-scale = Vector2(0.1, 0.1)
 
 [node name="Torso" type="Bone2D" parent="Skeleton2D"]
 top_level = true
@@ -702,12 +691,3 @@ libraries = {
 &"": SubResource("AnimationLibrary_by037")
 }
 autoplay = "Idle-loop"
-
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-target_desired_distance = 15.0
-path_max_distance = 50.0
-avoidance_enabled = true
-max_speed = 200.0
-debug_enabled = true
-
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dpy8kjmhoi1xi"]
 
 [ext_resource type="PackedScene" uid="uid://cdr41qlx3q5pe" path="res://resources/enemy.tscn" id="1_iucli"]
-[ext_resource type="Texture2D" uid="uid://chwi204cpocun" path="res://Enemy Variants/DogDadEnemy.png" id="2_ntmbn"]
+[ext_resource type="Texture2D" uid="uid://chwi204cpocun" path="res://Graphics/Enemy Variants/DogDadEnemy.png" id="2_ntmbn"]
 
 [node name="Enemy" instance=ExtResource("1_iucli")]
 
