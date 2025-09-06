@@ -594,10 +594,10 @@ tracks/8/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_by037"]
 _data = {
-"Attack": SubResource("Animation_r376j"),
-"Idle-loop": SubResource("Animation_a0dkc"),
-"RESET": SubResource("Animation_f6p5u"),
-"Walk-loop": SubResource("Animation_h5jjg")
+&"Attack": SubResource("Animation_r376j"),
+&"Idle-loop": SubResource("Animation_a0dkc"),
+&"RESET": SubResource("Animation_f6p5u"),
+&"Walk-loop": SubResource("Animation_h5jjg")
 }
 
 [node name="EnemyRagdoll" type="CharacterBody2D"]

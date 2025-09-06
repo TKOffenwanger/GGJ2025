@@ -10,7 +10,7 @@ extends Node2D
 @onready var _wave_timer : Timer = $BetweenWaves
 @onready var _spawn_timer : Timer = $BetweenSpawns
 @onready var SceneTransitionAnimation = $SceneTransitionAnimation/AnimationPlayer
-
+@onready var nav_region_rid = $NavigationRegion2D.get_region_rid()
 ## How many waves, how many per wave
 @export var waves : Array[int] = [
 	1,
@@ -36,8 +36,7 @@ func _ready():
 func _add_enemy():
 	if !is_instance_valid(_player_node): return
 	var enemy = _enemy_scene_array.pick_random().instantiate()
-	var random_dir_and_distance : Vector2 = Vector2.from_angle(randf()*PI*2) * randf_range(_avg_cam_distance * 0.8, _avg_cam_distance * 1.2)
-	enemy.global_position = _player_node.global_position + random_dir_and_distance
+	enemy.global_position = NavigationServer2D.region_get_random_point(nav_region_rid, 1, true)
 	self.add_child(enemy)
 	enemy.just_died.connect(_on_enemy_death)
 	_enemies_left_alive += 1

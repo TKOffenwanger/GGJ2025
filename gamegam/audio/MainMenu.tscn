@@ -1,15 +1,15 @@
 [gd_scene load_steps=19 format=3 uid="uid://dg0orr1jpdwb3"]
 
-[ext_resource type="Script" path="res://main_menu.gd" id="1_thpd7"]
+[ext_resource type="Script" uid="uid://c12xhqge6c00k" path="res://main_menu.gd" id="1_thpd7"]
 [ext_resource type="Texture2D" uid="uid://b0qrhahrqurmy" path="res://title.png" id="2_44jwe"]
 [ext_resource type="Texture2D" uid="uid://u8eku5vonqar" path="res://UI/MenuHolder.png" id="4_8uf4k"]
 [ext_resource type="Texture2D" uid="uid://dd1i4dmw0kxfw" path="res://UI/image.png" id="4_dyfma"]
 [ext_resource type="Texture2D" uid="uid://dwq3ho8b81yh" path="res://UI/Start.png" id="5_h5n1l"]
 [ext_resource type="Texture2D" uid="uid://beus0cmhxohca" path="res://UI/Exit.png" id="6_xasf7"]
 [ext_resource type="Texture2D" uid="uid://e1f23y2ijhgg" path="res://UI/Logo.png" id="7_k4c3e"]
-[ext_resource type="AudioStream" uid="uid://djcc4qoaty5k3" path="res://Audio/ThemeSong.mp3" id="8_q2qcf"]
+[ext_resource type="AudioStream" uid="uid://by3y2g4wwi0g5" path="res://Audio/ThemeSong.mp3" id="8_q2qcf"]
 [ext_resource type="Texture2D" uid="uid://bc140gm1kr4gn" path="res://UI/SoundOn.png" id="9_1crqv"]
-[ext_resource type="Script" path="res://stop_music.gd" id="9_ra8vu"]
+[ext_resource type="Script" uid="uid://pwc71g8sve6c" path="res://stop_music.gd" id="9_ra8vu"]
 [ext_resource type="Texture2D" uid="uid://da6o26py2580c" path="res://UI/SoundOff.png" id="10_to4x1"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wlc7q"]

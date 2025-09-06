@@ -1,12 +1,12 @@
 [gd_scene load_steps=15 format=3 uid="uid://ddvqxs1gvimh"]
 
-[ext_resource type="Texture2D" uid="uid://d1aw404gyf6r" path="res://Bunny Parts/Back Arm.png" id="1_d53yf"]
-[ext_resource type="Texture2D" uid="uid://c34oyilb0v7vu" path="res://Bunny Parts/Back Leg.png" id="2_oym5k"]
-[ext_resource type="Texture2D" uid="uid://cdl4c11io6fao" path="res://Bunny Parts/Tail.png" id="3_0mkts"]
-[ext_resource type="Texture2D" uid="uid://plm2g4wmr1mr" path="res://Bunny Parts/Torso.png" id="4_8mwyi"]
-[ext_resource type="Texture2D" uid="uid://b1qvbi3vmkqv7" path="res://Bunny Parts/Head.png" id="5_iauha"]
-[ext_resource type="Texture2D" uid="uid://jotqkr54xkts" path="res://Bunny Parts/Front Arm.png" id="6_0xcht"]
-[ext_resource type="Texture2D" uid="uid://bp6sa7xm1kfhs" path="res://VFX/Glow.png" id="7_u2gx0"]
+[ext_resource type="Texture2D" uid="uid://dsc2tn6m2ufc8" path="res://Bunny Parts/Back Arm.png" id="1_d53yf"]
+[ext_resource type="Texture2D" uid="uid://wmd3fp5kdss4" path="res://Bunny Parts/Back Leg.png" id="2_oym5k"]
+[ext_resource type="Texture2D" uid="uid://dujdu2r07qnb6" path="res://Bunny Parts/Tail.png" id="3_0mkts"]
+[ext_resource type="Texture2D" uid="uid://dkcc8q2gn7pn5" path="res://Bunny Parts/Torso.png" id="4_8mwyi"]
+[ext_resource type="Texture2D" uid="uid://betsotnrnorwy" path="res://Bunny Parts/Head.png" id="5_iauha"]
+[ext_resource type="Texture2D" uid="uid://bon0ovh1iw5vc" path="res://Bunny Parts/Front Arm.png" id="6_0xcht"]
+[ext_resource type="Texture2D" uid="uid://w31lgefpawv1" path="res://VFX/Glow.png" id="7_u2gx0"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ris7w"]
 radius = 12.919
@@ -14,6 +14,109 @@ height = 32.2628
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qsata"]
 load_path = "res://.godot/imported/Front Leg.png-5954abd1398d98c857486030ecfea6b0.ctex"
+
+[sub_resource type="Animation" id="Animation_r376j"]
+resource_name = "Attack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Polygons:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_a0dkc"]
+resource_name = "Idle-loop"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Skeleton2D/Torso/Head:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.14523, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Skeleton2D/Torso/BackArm:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [2.86947, 2.61801, 2.86947]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Skeleton2D/Torso/FrontArm:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(-0.2, 0.0001, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [2.86947, 3.45139, 3.56741, 3.45139]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Skeleton2D/Torso/Tail:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(-0.00833333, 0.491667, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-1.58409, -1.27176, -1.58409]
+}
 
 [sub_resource type="Animation" id="Animation_f6p5u"]
 length = 0.001
@@ -174,58 +277,6 @@ tracks/12/keys = {
 "values": [Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_a0dkc"]
-resource_name = "Idle-loop"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Skeleton2D/Torso/Head:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0, 0.14523, 0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Skeleton2D/Torso/BackArm:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [2.86947, 2.61801, 2.86947]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Skeleton2D/Torso/FrontArm:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(-0.2, 0.0001, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [2.86947, 3.45139, 3.56741, 3.45139]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Skeleton2D/Torso/Tail:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(-0.00833333, 0.491667, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [-1.58409, -1.27176, -1.58409]
-}
-
 [sub_resource type="Animation" id="Animation_h5jjg"]
 resource_name = "Walk-loop"
 loop_mode = 1
@@ -350,63 +401,12 @@ tracks/9/keys = {
 "values": [Vector2(0.955285, 1), Vector2(1, 1), Vector2(1.02969, 1), Vector2(0.955285, 1), Vector2(1.02969, 1), Vector2(0.955285, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_r376j"]
-resource_name = "Attack"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Polygons:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite2D:self_modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0.4),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_by037"]
 _data = {
-"Attack": SubResource("Animation_r376j"),
-"Idle-loop": SubResource("Animation_a0dkc"),
-"RESET": SubResource("Animation_f6p5u"),
-"Walk-loop": SubResource("Animation_h5jjg")
+&"Attack": SubResource("Animation_r376j"),
+&"Idle-loop": SubResource("Animation_a0dkc"),
+&"RESET": SubResource("Animation_f6p5u"),
+&"Walk-loop": SubResource("Animation_h5jjg")
 }
 
 [node name="CharacterBody2D" type="CharacterBody2D"]

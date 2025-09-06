@@ -574,10 +574,10 @@ tracks/8/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_by037"]
 _data = {
-"Attack": SubResource("Animation_r376j"),
-"Idle-loop": SubResource("Animation_a0dkc"),
-"RESET": SubResource("Animation_f6p5u"),
-"Walk-loop": SubResource("Animation_h5jjg")
+&"Attack": SubResource("Animation_r376j"),
+&"Idle-loop": SubResource("Animation_a0dkc"),
+&"RESET": SubResource("Animation_f6p5u"),
+&"Walk-loop": SubResource("Animation_h5jjg")
 }
 
 [node name="EnemyBody2D" type="CharacterBody2D"]
@@ -688,6 +688,6 @@ bone_angle = 0.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_by037")
+&"": SubResource("AnimationLibrary_by037")
 }
 autoplay = "Idle-loop"

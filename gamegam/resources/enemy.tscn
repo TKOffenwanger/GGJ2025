@@ -1,11 +1,10 @@
 [gd_scene load_steps=9 format=3 uid="uid://cdr41qlx3q5pe"]
 
-[ext_resource type="Script" path="res://enemy.gd" id="1_44l0r"]
+[ext_resource type="Script" uid="uid://d01g7w2xj55cv" path="res://enemy.gd" id="1_44l0r"]
 [ext_resource type="Texture2D" uid="uid://d1nslpq2tnjja" path="res://enemy.png" id="2_rhuj5"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_feyj1"]
-radius = 1.28655
-height = 3.62994
+[sub_resource type="CircleShape2D" id="CircleShape2D_ivgrx"]
+radius = 50.0
 
 [sub_resource type="Animation" id="Animation_r376j"]
 resource_name = "Attack"
@@ -575,10 +574,10 @@ tracks/8/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_by037"]
 _data = {
-"Attack": SubResource("Animation_r376j"),
-"Idle-loop": SubResource("Animation_a0dkc"),
-"RESET": SubResource("Animation_f6p5u"),
-"Walk-loop": SubResource("Animation_h5jjg")
+&"Attack": SubResource("Animation_r376j"),
+&"Idle-loop": SubResource("Animation_a0dkc"),
+&"RESET": SubResource("Animation_f6p5u"),
+&"Walk-loop": SubResource("Animation_h5jjg")
 }
 
 [node name="Enemy" type="RigidBody2D" groups=["Enemy", "Grabbable"]]
@@ -595,9 +594,7 @@ script = ExtResource("1_44l0r")
 speed = 5.0
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(4, -15)
-scale = Vector2(51.3, 62.26)
-shape = SubResource("CapsuleShape2D_feyj1")
+shape = SubResource("CircleShape2D_ivgrx")
 
 [node name="Sprites" type="Node2D" parent="."]
 position = Vector2(-52, -110)
@@ -702,8 +699,15 @@ bone_angle = 0.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_by037")
+&"": SubResource("AnimationLibrary_by037")
 }
 autoplay = "Idle-loop"
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+target_desired_distance = 15.0
+path_max_distance = 50.0
+avoidance_enabled = true
+max_speed = 200.0
+debug_enabled = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

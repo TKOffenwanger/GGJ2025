@@ -1,10 +1,14 @@
-[gd_scene load_steps=13 format=3 uid="uid://dymi18250cfo0"]
+[gd_scene load_steps=18 format=3 uid="uid://dymi18250cfo0"]
 
-[ext_resource type="Texture2D" uid="uid://cc42ojkey0702" path="res://OldMan.png" id="1_e06w1"]
+[sub_resource type="Resource" id="Resource_26cwh"]
+metadata/__load_path__ = "res://OldMan.png"
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_7tf2m"]
 a = Vector2(90, -230)
 b = Vector2(85, 375)
+
+[sub_resource type="Resource" id="Resource_bkad0"]
+metadata/__load_path__ = "res://OldMan.png"
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_jqr2g"]
 a = Vector2(218, -192)
@@ -14,13 +18,25 @@ b = Vector2(433, 429)
 a = Vector2(38, -995)
 b = Vector2(101, -272)
 
+[sub_resource type="Resource" id="Resource_pwxap"]
+metadata/__load_path__ = "res://OldMan.png"
+
+[sub_resource type="Resource" id="Resource_vnldh"]
+metadata/__load_path__ = "res://OldMan.png"
+
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_cjg8c"]
 a = Vector2(168, 642)
 b = Vector2(185, 267)
 
+[sub_resource type="Resource" id="Resource_brems"]
+metadata/__load_path__ = "res://OldMan.png"
+
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_5uyhx"]
 a = Vector2(-85, 659)
 b = Vector2(-27, 289)
+
+[sub_resource type="Resource" id="Resource_5g0ql"]
+metadata/__load_path__ = "res://OldMan.png"
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_cvn6h"]
 a = Vector2(-173, 467)
@@ -594,10 +610,10 @@ tracks/8/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_by037"]
 _data = {
-"Attack": SubResource("Animation_r376j"),
-"Idle-loop": SubResource("Animation_a0dkc"),
-"RESET": SubResource("Animation_f6p5u"),
-"Walk-loop": SubResource("Animation_h5jjg")
+&"Attack": SubResource("Animation_r376j"),
+&"Idle-loop": SubResource("Animation_a0dkc"),
+&"RESET": SubResource("Animation_f6p5u"),
+&"Walk-loop": SubResource("Animation_h5jjg")
 }
 
 [node name="EnemyRagdoll" type="CharacterBody2D"]
@@ -607,7 +623,7 @@ _data = {
 [node name="Torso_Enemy" type="Polygon2D" parent="Torso_Enemy"]
 z_index = 1
 position = Vector2(-338, -1647)
-texture = ExtResource("1_e06w1")
+texture = SubResource("Resource_26cwh")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(287.814, 1210.08, 81.6121, 1478.68, 24.6354, 1804.26, 111.457, 2007.75, 404.48, 2086.43, 651.38, 2002.33, 651.38, 1787.98, 739.558, 1519.38, 664.945, 1283.33, 532, 1161.24)
 uv = PackedVector2Array(287.814, 1210.08, 81.6121, 1478.68, 24.6354, 1804.26, 111.457, 2007.75, 404.48, 2086.43, 651.38, 2002.33, 651.38, 1787.98, 717.853, 1538.37, 664.945, 1283.33, 532, 1161.24)
@@ -620,7 +636,7 @@ shape = SubResource("SegmentShape2D_7tf2m")
 
 [node name="BackArm_Enemy" type="Polygon2D" parent="Torso_Enemy/BackArm_Enemy"]
 position = Vector2(-1132, -1580)
-texture = ExtResource("1_e06w1")
+texture = SubResource("Resource_bkad0")
 skeleton = NodePath("../../../Skeleton2D")
 polygon = PackedVector2Array(1232, 1180.23, 1199.44, 1326.74, 1335.1, 1847.67, 1234.71, 1929.07, 1291.69, 2037.6, 1663.4, 2097.29, 1720.37, 1929.07, 1701.38, 1703.88, 1476.19, 1410.85, 1310.68, 1155.81)
 uv = PackedVector2Array(1232, 1180.23, 1199.44, 1326.74, 1335.1, 1847.67, 1234.71, 1929.07, 1291.69, 2037.6, 1663.4, 2097.29, 1720.37, 1929.07, 1701.38, 1703.88, 1476.19, 1410.85, 1310.68, 1155.81)
@@ -637,7 +653,7 @@ shape = SubResource("SegmentShape2D_fgdrh")
 
 [node name="Polygon2D" type="Polygon2D" parent="Torso_Enemy/Head"]
 position = Vector2(-417, -1349)
-texture = ExtResource("1_e06w1")
+texture = SubResource("Resource_pwxap")
 skeleton = NodePath("../../../Skeleton2D")
 polygon = PackedVector2Array(122.31, 539.923, -40.481, 602.326, 59.9066, 876.357, 228.124, 974.031, 317.659, 952.326, 445.178, 1050, 656.806, 1106.98, 955.256, 1055.43, 1109.91, 819.38, 985.1, 602.326, 1183.16, 556.202, 1318.82, 482.946, 1291.69, 336.435, 1153.32, 233.334, 990.527, 260.466, 909.131, 263.179, 844.015, 105.814, 768.046, -2.71272, 621.535, -8.13908, 442.465, 13.5664, 236.264, -37.9842, 100.604, 2.71347, 2.93018, 62.4034, -92.0313, 208.915, -78.4652, 374.419)
 uv = PackedVector2Array(122.31, 539.923, -40.481, 602.326, 59.9066, 876.357, 228.124, 974.031, 317.659, 952.326, 445.178, 1050, 656.806, 1106.98, 938.977, 1098.84, 1128.9, 794.962, 985.1, 602.326, 1183.16, 556.202, 1318.82, 482.946, 1291.69, 336.435, 1153.32, 233.334, 990.527, 260.466, 909.131, 263.179, 844.015, 105.814, 768.046, -2.71272, 621.535, -8.13908, 439.752, -16.2788, 309.519, -35.271, 111.457, -32.5578, -5.20935, 70.5429, -64.8994, 268.605, -73.0388, 398.837)
@@ -647,7 +663,7 @@ bones = ["Torso", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
 [node name="BackLeg_Enemy" type="Polygon2D" parent="Torso_Enemy/BackLeg_Enemy"]
 position = Vector2(-1374, 56)
-texture = ExtResource("1_e06w1")
+texture = SubResource("Resource_vnldh")
 skeleton = NodePath("../../../Skeleton2D")
 polygon = PackedVector2Array(1378.51, 29.8454, 1310.68, 138.373, 1354.09, 575.194, 1503.32, 643.024, 1693.24, 634.884, 1731.22, 553.489, 1657.97, 493.799, 1723.08, 284.884, 1628.12, 16.2795)
 uv = PackedVector2Array(1378.51, 29.8454, 1310.68, 138.373, 1354.09, 575.194, 1503.32, 643.024, 1693.24, 634.884, 1731.22, 553.489, 1657.97, 493.799, 1723.08, 284.884, 1628.12, 16.2795)
@@ -661,7 +677,7 @@ z_index = 1
 
 [node name="FrontLeg_Enemy" type="Polygon2D" parent="Torso_Enemy/FrontLeg_Enemy"]
 position = Vector2(-1616, -510)
-texture = ExtResource("1_e06w1")
+texture = SubResource("Resource_brems")
 skeleton = NodePath("../../../Skeleton2D")
 polygon = PackedVector2Array(1516.88, 648.45, 1332.39, 718.993, 1351.38, 1153.1, 1516.88, 1237.21, 1728.51, 1220.93, 1663.4, 1074.42, 1736.65, 824.807)
 uv = PackedVector2Array(1516.88, 648.45, 1332.39, 718.993, 1351.38, 1153.1, 1516.88, 1237.21, 1728.51, 1220.93, 1663.4, 1074.42, 1736.65, 824.807)
@@ -675,7 +691,7 @@ z_index = 1
 
 [node name="FrontArm_Enemy" type="Polygon2D" parent="Torso_Enemy/FrontArm_Enemy"]
 position = Vector2(-1068, -1526)
-texture = ExtResource("1_e06w1")
+texture = SubResource("Resource_5g0ql")
 skeleton = NodePath("../../../Skeleton2D")
 polygon = PackedVector2Array(987.813, 1139.54, 822.31, 1258.92, 670.372, 1665.89, 681.224, 1969.77, 863.007, 2075.58, 1109.91, 2105.43, 1093.63, 1967.05, 1153.32, 1815.12, 1047.5, 1646.9, 1088.2, 1400, 1115.33, 1245.35)
 uv = PackedVector2Array(987.813, 1139.54, 822.31, 1258.92, 670.372, 1665.89, 681.224, 1969.77, 863.007, 2075.58, 1109.91, 2105.43, 1093.63, 1967.05, 1153.32, 1815.12, 1047.5, 1646.9, 1088.2, 1400, 1115.33, 1245.35)

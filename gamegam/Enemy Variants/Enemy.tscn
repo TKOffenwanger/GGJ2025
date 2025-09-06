@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dx2dtbtvlfcp0"]
 
-[ext_resource type="Texture2D" uid="uid://c14xiikdtjul0" path="res://enemy.png" id="7_a01po"]
+[ext_resource type="Texture2D" uid="uid://d1nslpq2tnjja" path="res://enemy.png" id="7_a01po"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ris7w"]
 radius = 12.4172
@@ -574,10 +574,10 @@ tracks/8/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_by037"]
 _data = {
-"Attack": SubResource("Animation_r376j"),
-"Idle-loop": SubResource("Animation_a0dkc"),
-"RESET": SubResource("Animation_f6p5u"),
-"Walk-loop": SubResource("Animation_h5jjg")
+&"Attack": SubResource("Animation_r376j"),
+&"Idle-loop": SubResource("Animation_a0dkc"),
+&"RESET": SubResource("Animation_f6p5u"),
+&"Walk-loop": SubResource("Animation_h5jjg")
 }
 
 [node name="EnemyBody2D" type="CharacterBody2D"]

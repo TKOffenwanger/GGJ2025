@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Gamegam"
 run/main_scene="res://MainMenu.tscn"
-config/features=PackedStringArray("4.3", "GL Compatibility")
+config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [display]
@@ -28,6 +28,7 @@ project/assembly_name="Gamegam"
 Player="The player"
 Enemy="A FOE"
 Grabbable="Is object grabbable"
+nav="used to determine what is in the Navmesh"
 
 [input]
 

@@ -3,6 +3,7 @@ extends RigidBody2D
 @onready var player_node : CharacterBody2D = get_tree().get_first_node_in_group("Player")
 @onready var _confetti_scene = preload("res://resources/confetti_explosion.tscn")
 @onready var _animator : AnimationPlayer = $AnimationPlayer
+@onready var _nav_agent : NavigationAgent2D = $NavigationAgent2D
 
 @export var speed : float = 200
 #var _flip_h : bool = false:
@@ -48,11 +49,16 @@ func _physics_process(delta):
 		if linear_velocity.length() < 10:
 			reset_to_normal()
 	elif is_instance_valid(player_node):
-		var velocity = (player_node.position - position).normalized() * speed
-		#position += velocity * del*ta
-		move_and_collide(velocity)
+		_move_toward_player()
 	_play_animation()
 	_how_fast_I_was_just_going = linear_velocity.length()
+
+func _move_toward_player():
+	linear_velocity = Vector2.ZERO
+	_nav_agent.target_position = player_node.position
+	var next_nav_point = _nav_agent.get_next_path_position()
+	linear_velocity = (next_nav_point - position).normalized() * speed
+	move_and_collide(linear_velocity)
 
 func _on_body_entered(body):
 	if body.is_in_group("Player") or (body.is_in_group("Enemy") and body._grabbed):
@@ -68,7 +74,6 @@ func _on_body_entered(body):
 			_rag_dolled = true
 
 func _play_animation():
-	
 	if not _grabbed and not _rag_dolled and linear_velocity.x != 0:
 		_animator.play("Walk-loop")
 		#_flip_h = linear_velocity.x < 0 #flip sprites if heading left
